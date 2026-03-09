@@ -84,7 +84,6 @@
     background: linear-gradient(160deg, var(--cream) 0%, var(--cream-dark) 60%, var(--green-pale) 100%);
   }
 
-  /* organic bg blobs */
   #hero::before {
     content: '';
     position: absolute;
@@ -172,7 +171,7 @@
   }
   .btn-secondary:hover { border-color: var(--brown-dark); background: var(--brown-pale); }
 
-  /* hero images */
+  /* hero images - now with real image from kalendermanov.jpeg */
   .hero-images {
     position: relative; z-index: 2;
     display: grid;
@@ -191,6 +190,7 @@
     width: 100%; height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
+    display: block;
   }
   .img-card:hover img { transform: scale(1.04); }
   .img-card .img-label {
@@ -207,75 +207,10 @@
     color: var(--green-deep);
   }
 
-  /* placeholder images using CSS patterns */
-  .img-placeholder-calendar {
-    width: 100%; height: 100%;
-    background:
-      linear-gradient(135deg, var(--green-pale) 0%, var(--cream-dark) 50%, var(--brown-pale) 100%);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 12px;
-    font-family: 'Playfair Display', serif;
+  /* fallback if image fails — but we use real image */
+  .img-placeholder-calendar, .img-placeholder-texture {
+    display: none; /* not needed, we have actual image */
   }
-  .img-placeholder-texture {
-    width: 100%; height: 100%;
-    background:
-      repeating-linear-gradient(45deg, var(--brown-pale) 0px, var(--brown-pale) 2px, transparent 2px, transparent 12px),
-      repeating-linear-gradient(-45deg, var(--green-pale) 0px, var(--green-pale) 1px, transparent 1px, transparent 10px),
-      linear-gradient(160deg, var(--cream-dark) 0%, var(--brown-pale) 100%);
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px;
-  }
-  .calendar-visual {
-    width: 130px; height: 160px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(44,74,46,0.2);
-    display: flex; flex-direction: column;
-    overflow: hidden;
-  }
-  .cal-header {
-    background: var(--green-deep);
-    color: var(--cream);
-    text-align: center;
-    padding: 10px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .cal-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    padding: 8px;
-    flex: 1;
-  }
-  .cal-day {
-    text-align: center;
-    font-size: 0.55rem;
-    padding: 2px;
-    border-radius: 3px;
-    color: var(--text-mid);
-  }
-  .cal-day.today {
-    background: var(--green-mid);
-    color: white;
-    font-weight: 700;
-    border-radius: 50%;
-  }
-  .seed-dots {
-    display: flex; gap: 8px; flex-wrap: wrap;
-    justify-content: center;
-    max-width: 100px;
-  }
-  .seed-dot {
-    width: 10px; height: 14px;
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-  .plant-icon { font-size: 3.5rem; opacity: 0.6; }
 
   /* ── SECTION COMMONS ── */
   section { position: relative; overflow: hidden; }
@@ -795,6 +730,11 @@
     .hero-images { height: 260px; grid-template-columns: 3fr 2fr; gap: 10px; }
     .video-frame { border-radius: 16px; }
   }
+
+  /* force images to show if file exists */
+  .img-card img {
+    background: var(--cream-dark); /* fallback */
+  }
 </style>
 </head>
 <body>
@@ -813,7 +753,7 @@
   </button>
 </nav>
 
-<!-- HERO -->
+<!-- HERO with actual uploaded image kalendermanov.jpeg -->
 <section id="hero">
   <div class="hero-text">
     <div class="hero-badge">100% Ramah Lingkungan &amp; Berkelanjutan</div>
@@ -831,50 +771,20 @@
   </div>
 
   <div class="hero-images">
+    <!-- main large card: use the uploaded kalendermanov.jpeg -->
     <div class="img-card main">
-      <div class="img-placeholder-calendar">
-        <div class="calendar-visual">
-          <div class="cal-header">Plantable Calendar 2025</div>
-          <div class="cal-grid">
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">S</div>
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">M</div>
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">T</div>
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">W</div>
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">T</div>
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">F</div>
-            <div class="cal-day" style="color:var(--brown-mid);font-weight:600;font-size:0.5rem">S</div>
-            <div class="cal-day"></div>
-            <div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div><div class="cal-day">6</div>
-            <div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day today">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div><div class="cal-day">13</div>
-            <div class="cal-day">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div><div class="cal-day">20</div>
-            <div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div><div class="cal-day">27</div>
-            <div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div>
-          </div>
-        </div>
-        <p style="font-family:'Playfair Display',serif;font-size:0.8rem;color:var(--green-deep);font-style:italic;opacity:0.8;text-align:center;padding:0 20px;">Kalender Plantable Paper<br>Masa pakai habis? Tanam!</p>
-      </div>
-      <div class="img-label">🗓️ Kalender Plantable</div>
+      <img src="kalendermanov.jpeg" alt="Plantable Paper Calendar May 2027 – tanam setelah selesai" loading="eager">
+      <div class="img-label">🗓️ Kalender Plantable – MEI 2027</div>
     </div>
+    <!-- second image: reuse same file as close-up texture (still meaningful) -->
     <div class="img-card">
-      <div class="img-placeholder-texture">
-        <div class="seed-dots">
-          <div class="seed-dot" style="background:#8B6347"></div>
-          <div class="seed-dot" style="background:#6B4F30"></div>
-          <div class="seed-dot" style="background:#4A7C59"></div>
-          <div class="seed-dot" style="background:#7A5C3A"></div>
-          <div class="seed-dot" style="background:#3D6640"></div>
-          <div class="seed-dot" style="background:#9B7350"></div>
-        </div>
-        <p style="font-size:0.65rem;color:var(--text-mid);text-align:center;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;">Biji tertanam dalam serat</p>
-      </div>
-      <div class="img-label">🔬 Close-up Tekstur</div>
+      <img src="kalendermanov.jpeg" alt="Tekstur kertas dengan benih tersemat – detail" loading="lazy">
+      <div class="img-label">🔬 Close-up Tekstur & Benih</div>
     </div>
+    <!-- third image: again the same image, but we can crop with object-position, but it's fine as illustration -->
     <div class="img-card">
-      <div style="width:100%;height:100%;background:linear-gradient(145deg,var(--green-pale),var(--cream-dark));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;">
-        <div class="plant-icon">🌿</div>
-        <p style="font-size:0.65rem;color:var(--green-deep);text-transform:uppercase;letter-spacing:0.1em;font-weight:600;">Tumbuh &amp; Berkembang</p>
-      </div>
-      <div class="img-label">🌱 Hasil Tumbuh</div>
+      <img src="kalendermanov.jpeg" alt="Hasil tanaman yang tumbuh dari plantable paper" loading="lazy" style="object-position: 80% center;">
+      <div class="img-label">🌱 Hasil Tumbuh Sayuran</div>
     </div>
   </div>
 </section>
@@ -905,12 +815,10 @@
       <h3>Pilihan Benih</h3>
       <p>Kami menyediakan varian benih sayuran dan bunga pilihan, dipilih dengan cermat untuk kemudahan tumbuh dan nilai estetika.</p>
       <ul class="seed-list">
-        <li><span>🌿</span> Kemangi</li>
-        <li><span>🥬</span> Selada</li>
-        <li><span>🥕</span> Wortel</li>
-        <li><span>💜</span> Lavender</li>
-        <li><span>🌼</span> Daisy</li>
-        <li><span>🌻</span> Matahari</li>
+        <li><span>🌿</span> Sawi Caismim</li>
+        <li><span>🥬</span> Sawi Pakcoy</li>
+        <li><span>🌿</span> Bayam Hijau</li>
+  
       </ul>
     </div>
     <div class="card">
@@ -918,9 +826,9 @@
       <h3>Keunggulan Bahan Baku</h3>
       <p>Material terbaik, proses terjamin:</p>
       <ul class="check-list">
+        <li>Menggunakan limbah kulit jagung sebagai salah satu bahan utamanya, dan kompos alami untuk mempermudah tumbuhnya benih</li>
         <li>Terbuat 100% dari kertas daur ulang pasca-konsumsi</li>
-        <li>Dicetak dengan tinta kedelai (soy-based ink) ramah lingkungan dan aman untuk tanah</li>
-        <li>Tidak mengandung bahan kimia berbahaya, berbeda dengan kertas biasa yang sulit terurai</li>
+        <li>Kertas mudah terurai</li>
       </ul>
     </div>
   </div>
