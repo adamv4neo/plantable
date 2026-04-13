@@ -1,3 +1,7 @@
+Berikut kode HTML yang telah diperbarui dengan link video tutorial yang Anda minta (https://youtu.be/Tu_QNB-aTmg).
+
+Link tersebut telah diterapkan pada area video utama, tombol "Tonton Proses Pembuatannya", dan juga pada bagian thumbnail interaktif.
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -841,7 +845,7 @@
   </svg>
 </div>
 
-<!-- VIDEO SECTION -->
+<!-- VIDEO SECTION with updated YouTube link -->
 <section id="video">
   <!-- decorative leaf -->
   <svg class="leaf-deco" style="top:-40px;left:-60px;width:280px;" viewBox="0 0 200 200"><path d="M100,10 C140,10 180,50 180,100 C180,150 140,190 100,190 C60,190 20,150 20,100 C20,50 60,10 100,10 Z M100,30 C70,30 40,60 40,100 C40,140 70,170 100,170 C130,170 160,140 160,100 C160,60 130,30 100,30 Z"/></svg>
@@ -852,7 +856,8 @@
     <h2 style="color:var(--cream);">Bagaimana Cara<br><em style="font-style:italic;color:var(--brown-light);">Membuatnya?</em></h2>
     <p class="section-desc">Dari kertas bekas menjadi kertas biji — saksikan transformasi ajaib yang menghubungkan daur ulang dengan kehidupan baru.</p>
 
-    <div class="video-frame" onclick="window.open('https://www.youtube.com/results?search_query=plantable+seed+paper+making+process','_blank')">
+    <!-- Video thumbnail with direct link to new tutorial: https://youtu.be/Tu_QNB-aTmg -->
+    <div class="video-frame" onclick="window.open('https://youtu.be/Tu_QNB-aTmg','_blank')">
       <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,74,46,0.8),rgba(92,61,46,0.6));display:flex;align-items:center;justify-content:center;">
         <div style="text-align:center;">
           <div class="play-btn"></div>
@@ -862,10 +867,11 @@
       <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:-1;">
         <span style="font-size:5rem;opacity:0.15;">🌿</span>
       </div>
-      <div class="video-thumbnail-text">Proses Pembuatan Plantable Paper</div>
+      <div class="video-thumbnail-text">Proses Pembuatan Plantable Paper (Tutorial)</div>
     </div>
 
-    <a href="https://www.youtube.com/results?search_query=plantable+seed+paper+making+process" target="_blank" class="btn-watch">
+    <!-- Updated button link to new tutorial -->
+    <a href="https://youtu.be/Tu_QNB-aTmg" target="_blank" class="btn-watch">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.43 3.5 12 3.5 12 3.5s-7.43 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.15 0 12 0 12s0 3.85.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.57 20.5 12 20.5 12 20.5s7.43 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.85 24 12 24 12s0-3.85-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
       Tonton Proses Pembuatannya
     </a>
@@ -1012,3 +1018,4 @@
 </script>
 </body>
 </html>
+```
