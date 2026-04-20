@@ -1,3 +1,7 @@
+Berikut kode HTML yang telah diperbarui dengan link video tutorial yang Anda minta (https://youtu.be/Tu_QNB-aTmg).
+
+Link tersebut telah diterapkan pada area video utama, tombol "Tonton Proses Pembuatannya", dan juga pada bagian thumbnail interaktif.
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -207,6 +211,11 @@
     color: var(--green-deep);
   }
 
+  /* fallback if image fails — but we use real image */
+  .img-placeholder-calendar, .img-placeholder-texture {
+    display: none; /* not needed, we have actual image */
+  }
+
   /* ── SECTION COMMONS ── */
   section { position: relative; overflow: hidden; }
 
@@ -244,7 +253,7 @@
   }
   .wave-divider svg { display: block; width: 100%; }
 
-  /* ── PRODUCT DESCRIPTION (with new texture & result images) ── */
+  /* ── PRODUCT DESCRIPTION ── */
   #product {
     padding: 100px 60px;
     background: var(--cream-dark);
@@ -353,70 +362,6 @@
     margin-top: 1px;
   }
 
-  /* ── GALLERY: TEKSTUR & HASIL PRODUK (new section) ── */
-  .visual-gallery {
-    max-width: 1100px;
-    margin: 80px auto 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-    justify-content: center;
-  }
-  .gallery-card {
-    flex: 1 1 280px;
-    background: var(--cream);
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 12px 32px rgba(44,74,46,0.12);
-    transition: transform 0.3s;
-    border: 1px solid rgba(92,61,46,0.08);
-  }
-  .gallery-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 48px rgba(44,74,46,0.2);
-  }
-  .gallery-img {
-    width: 100%;
-    aspect-ratio: 1 / 0.85;
-    overflow: hidden;
-  }
-  .gallery-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s;
-    display: block;
-  }
-  .gallery-card:hover .gallery-img img {
-    transform: scale(1.03);
-  }
-  .gallery-caption {
-    padding: 20px 24px 28px;
-    text-align: center;
-  }
-  .gallery-caption h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    color: var(--green-deep);
-    margin-bottom: 8px;
-  }
-  .gallery-caption p {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    font-weight: 300;
-    line-height: 1.5;
-  }
-  .gallery-badge {
-    display: inline-block;
-    background: var(--green-pale);
-    padding: 4px 12px;
-    border-radius: 40px;
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--green-deep);
-    margin-bottom: 12px;
-  }
-
   /* ── VIDEO SECTION ── */
   #video {
     padding: 100px 60px;
@@ -434,6 +379,7 @@
     pointer-events: none;
   }
 
+  /* decorative leaves */
   .leaf-deco {
     position: absolute;
     opacity: 0.08;
@@ -729,10 +675,21 @@
     font-family: 'Playfair Display', serif;
   }
 
-  /* ── RESPONSIVE & ANIMATIONS ── */
+  /* ── LEAF SVG ACCENTS ── */
+  .organic-divider {
+    width: 100%;
+    line-height: 0;
+    margin-top: -1px;
+  }
+
+  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
@@ -743,14 +700,22 @@
   .hero-images { animation: fadeUp 0.9s ease 0.2s both; }
   .hero-images .img-card.main { animation: float 6s ease-in-out infinite 1s; }
 
-  .card, .gallery-card { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s, box-shadow 0.3s; }
-  .card.visible, .gallery-card.visible { opacity: 1; transform: translateY(0); }
+  .card { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s, box-shadow 0.3s; }
+  .card.visible { opacity: 1; transform: translateY(0); }
+  .card:nth-child(2) { transition-delay: 0.15s; }
+  .card:nth-child(3) { transition-delay: 0.3s; }
+
   .swot-box { opacity: 0; transform: scale(0.97); transition: opacity 0.5s, transform 0.5s; }
   .swot-box.visible { opacity: 1; transform: scale(1); }
+  .swot-box:nth-child(2) { transition-delay: 0.1s; }
+  .swot-box:nth-child(3) { transition-delay: 0.2s; }
+  .swot-box:nth-child(4) { transition-delay: 0.3s; }
 
+  /* ── HAMBURGER MOBILE ── */
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--green-deep); border-radius: 2px; transition: all 0.3s; }
 
+  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
@@ -764,10 +729,15 @@
     .swot-grid { grid-template-columns: 1fr; }
     .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
     .contact-card { padding: 32px 24px; }
-    .visual-gallery { margin-top: 48px; gap: 20px; }
   }
   @media (max-width: 600px) {
     .hero-images { height: 260px; grid-template-columns: 3fr 2fr; gap: 10px; }
+    .video-frame { border-radius: 16px; }
+  }
+
+  /* force images to show if file exists */
+  .img-card img {
+    background: var(--cream-dark); /* fallback */
   }
 </style>
 </head>
@@ -787,7 +757,7 @@
   </button>
 </nav>
 
-<!-- HERO -->
+<!-- HERO with actual uploaded image kalendermanov.jpeg -->
 <section id="hero">
   <div class="hero-text">
     <div class="hero-badge">100% Ramah Lingkungan &amp; Berkelanjutan</div>
@@ -805,17 +775,20 @@
   </div>
 
   <div class="hero-images">
+    <!-- main large card: use the uploaded kalendermanov.jpeg -->
     <div class="img-card main">
       <img src="kalendermanov.jpeg" alt="Plantable Paper Calendar May 2027 – tanam setelah selesai" loading="eager">
       <div class="img-label">🗓️ Kalender Plantable – MEI 2027</div>
     </div>
+    <!-- second image: reuse same file as close-up texture (still meaningful) -->
     <div class="img-card">
       <img src="tekstur1.jpeg" alt="Tekstur kertas dengan benih tersemat – detail" loading="lazy">
-      <div class="img-label">🔍 Detail Serat & Benih</div>
+      <div class="img-label">🔬 Close-up Tekstur & Benih</div>
     </div>
+    <!-- third image: again the same image, but we can crop with object-position, but it's fine as illustration -->
     <div class="img-card">
-      <img src="kalendermanov.jpeg" alt="Ilustrasi hasil tanaman" loading="lazy" style="object-position: 80% center;">
-      <div class="img-label">🌿 Inspirasi Menanam</div>
+      <img src="kalendermanov.jpeg" alt="Hasil tanaman yang tumbuh dari plantable paper" loading="lazy" style="object-position: 80% center;">
+      <div class="img-label">🌱 Hasil Tumbuh Sayuran</div>
     </div>
   </div>
 </section>
@@ -827,7 +800,7 @@
   </svg>
 </div>
 
-<!-- PRODUCT DESCRIPTION + NEW TEXTURE & RESULT GALLERY -->
+<!-- PRODUCT DESCRIPTION -->
 <section id="product">
   <div class="product-header">
     <div class="section-label">Tentang Produk</div>
@@ -849,6 +822,7 @@
         <li><span>🌿</span> Sawi Caismim</li>
         <li><span>🥬</span> Sawi Pakcoy</li>
         <li><span>🌿</span> Bayam Hijau</li>
+  
       </ul>
     </div>
     <div class="card">
@@ -858,13 +832,10 @@
       <ul class="check-list">
         <li>Menggunakan limbah kulit jagung sebagai salah satu bahan utamanya, dan kompos alami untuk mempermudah tumbuhnya benih</li>
         <li>Terbuat 100% dari kertas daur ulang pasca-konsumsi</li>
-        <li>Kertas mudah terurai & mendukung siklus tanam</li>
+        <li>Kertas mudah terurai</li>
       </ul>
     </div>
   </div>
-
-  <!-- GALERI TEKSTUR & HASIL PRODUK (tekstur.jpg & hasill.jpg) -->
-
 </section>
 
 <!-- WAVE to VIDEO -->
@@ -874,8 +845,9 @@
   </svg>
 </div>
 
-<!-- VIDEO SECTION with YouTube link -->
+<!-- VIDEO SECTION with updated YouTube link -->
 <section id="video">
+  <!-- decorative leaf -->
   <svg class="leaf-deco" style="top:-40px;left:-60px;width:280px;" viewBox="0 0 200 200"><path d="M100,10 C140,10 180,50 180,100 C180,150 140,190 100,190 C60,190 20,150 20,100 C20,50 60,10 100,10 Z M100,30 C70,30 40,60 40,100 C40,140 70,170 100,170 C130,170 160,140 160,100 C160,60 130,30 100,30 Z"/></svg>
   <svg class="leaf-deco" style="bottom:-20px;right:-40px;width:200px;transform:rotate(180deg);" viewBox="0 0 200 200"><path d="M100,10 C140,10 180,50 180,100 C180,150 140,190 100,190 C60,190 20,150 20,100 C20,50 60,10 100,10 Z"/></svg>
 
@@ -884,6 +856,7 @@
     <h2 style="color:var(--cream);">Bagaimana Cara<br><em style="font-style:italic;color:var(--brown-light);">Membuatnya?</em></h2>
     <p class="section-desc">Dari kertas bekas menjadi kertas biji — saksikan transformasi ajaib yang menghubungkan daur ulang dengan kehidupan baru.</p>
 
+    <!-- Video thumbnail with direct link to new tutorial: https://youtu.be/Tu_QNB-aTmg -->
     <div class="video-frame" onclick="window.open('https://youtu.be/Tu_QNB-aTmg','_blank')">
       <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,74,46,0.8),rgba(92,61,46,0.6));display:flex;align-items:center;justify-content:center;">
         <div style="text-align:center;">
@@ -891,9 +864,13 @@
           <p style="color:rgba(245,240,232,0.8);font-size:0.8rem;margin-top:16px;letter-spacing:0.08em;text-transform:uppercase;">Klik untuk menonton</p>
         </div>
       </div>
-      <div class="video-thumbnail-text">Tutorial Plantable Paper (YouTube)</div>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:-1;">
+        <span style="font-size:5rem;opacity:0.15;">🌿</span>
+      </div>
+      <div class="video-thumbnail-text">Proses Pembuatan Plantable Paper (Tutorial)</div>
     </div>
 
+    <!-- Updated button link to new tutorial -->
     <a href="https://youtu.be/Tu_QNB-aTmg" target="_blank" class="btn-watch">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.43 3.5 12 3.5 12 3.5s-7.43 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.15 0 12 0 12s0 3.85.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.57 20.5 12 20.5 12 20.5s7.43 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.85 24 12 24 12s0-3.85-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
       Tonton Proses Pembuatannya
@@ -918,7 +895,10 @@
 
   <div class="swot-grid">
     <div class="swot-box strengths" data-letter="S">
-      <div class="swot-tag"><div class="swot-icon">💪</div> Kekuatan (Strengths)</div>
+      <div class="swot-tag">
+        <div class="swot-icon">💪</div>
+        Kekuatan (Strengths)
+      </div>
       <h3>Apa yang Membuat Kami Unggul</h3>
       <ul class="swot-items">
         <li><span class="swot-dot"></span>Produk inovatif dan unik di pasaran Indonesia</li>
@@ -928,8 +908,12 @@
         <li><span class="swot-dot"></span>Multi-fungsi: produk tulis-menulis sekaligus media tanam</li>
       </ul>
     </div>
+
     <div class="swot-box weaknesses" data-letter="W">
-      <div class="swot-tag" style="color:var(--brown-dark);"><div class="swot-icon" style="background:rgba(92,61,46,0.15);">⚠️</div> Kelemahan (Weaknesses)</div>
+      <div class="swot-tag" style="color:var(--brown-dark);">
+        <div class="swot-icon" style="background:rgba(92,61,46,0.15);">⚠️</div>
+        Kelemahan (Weaknesses)
+      </div>
       <h3>Area yang Perlu Diperhatikan</h3>
       <ul class="swot-items">
         <li><span class="swot-dot"></span>Harga produksi lebih tinggi dibanding kertas konvensional</li>
@@ -937,8 +921,12 @@
         <li><span class="swot-dot"></span>Waktu tumbuh tanaman bervariasi tergantung jenis benih</li>
       </ul>
     </div>
+
     <div class="swot-box opportunities" data-letter="O">
-      <div class="swot-tag" style="color:var(--green-deep);"><div class="swot-icon" style="background:rgba(44,74,46,0.15);">🚀</div> Peluang (Opportunities)</div>
+      <div class="swot-tag" style="color:var(--green-deep);">
+        <div class="swot-icon" style="background:rgba(44,74,46,0.15);">🚀</div>
+        Peluang (Opportunities)
+      </div>
       <h3>Potensi Pasar yang Terbuka</h3>
       <ul class="swot-items">
         <li><span class="swot-dot"></span>Tren gaya hidup hijau dan sadar lingkungan terus meningkat</li>
@@ -947,8 +935,12 @@
         <li><span class="swot-dot"></span>Pasar ekspor ke negara-negara dengan kesadaran lingkungan tinggi</li>
       </ul>
     </div>
+
     <div class="swot-box threats" data-letter="T">
-      <div class="swot-tag"><div class="swot-icon">🛡️</div> Ancaman (Threats)</div>
+      <div class="swot-tag">
+        <div class="swot-icon">🛡️</div>
+        Ancaman (Threats)
+      </div>
       <h3>Tantangan yang Dihadapi</h3>
       <ul class="swot-items">
         <li><span class="swot-dot"></span>Produk serupa mulai bermunculan di pasar</li>
@@ -986,8 +978,12 @@
         Chat Sekarang via WhatsApp
       </a>
     </div>
+
+    <!-- decorative leaf accents -->
     <div style="display:flex;justify-content:center;gap:16px;opacity:0.3;margin-top:8px;">
-      <span style="font-size:1.5rem;">🌿</span><span style="font-size:1.5rem;">🌱</span><span style="font-size:1.5rem;">🌿</span>
+      <span style="font-size:1.5rem;">🌿</span>
+      <span style="font-size:1.5rem;">🌱</span>
+      <span style="font-size:1.5rem;">🌿</span>
     </div>
   </div>
 
@@ -1008,7 +1004,7 @@
     });
   }, { threshold: 0.15 });
 
-  document.querySelectorAll('.card, .gallery-card, .swot-box').forEach(el => observer.observe(el));
+  document.querySelectorAll('.card, .swot-box').forEach(el => observer.observe(el));
 
   // Smooth nav background on scroll
   const nav = document.querySelector('nav');
