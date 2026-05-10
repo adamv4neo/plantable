@@ -1,1020 +1,391 @@
-Berikut kode HTML yang telah diperbarui dengan link video tutorial yang Anda minta (https://youtu.be/Tu_QNB-aTmg).
-
-Link tersebut telah diterapkan pada area video utama, tombol "Tonton Proses Pembuatannya", dan juga pada bagian thumbnail interaktif.
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plantable Paper – Tanam Kembali, Hidupkan Kembali</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+<title>Roleplay Cards · Video Interaktif & Panduan · 3 Bahasa</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Fredoka+One&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<!-- Font Awesome 6 (gratis) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 <style>
-  :root {
-    --cream: #F5F0E8;
-    --cream-dark: #EDE5D4;
-    --green-deep: #2C4A2E;
-    --green-mid: #4A7C59;
-    --green-light: #7AB592;
-    --green-pale: #C8DFC8;
-    --brown-dark: #5C3D2E;
-    --brown-mid: #8B6347;
-    --brown-light: #C4A882;
-    --brown-pale: #E8D5B7;
-    --text-dark: #2A2118;
-    --text-mid: #5C4A35;
-    --text-light: #8B7355;
-  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;background:#fff9f0;color:#2d2d2d;min-height:100vh;}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* header mirip asli */
+  .site-header{background:linear-gradient(135deg,#ff6b6b,#ff8e53,#feca57);padding:2rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+  .site-header::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.15) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.1) 0%,transparent 50%);}
+  .header-inner{position:relative;z-index:1;}
+  .badge{display:inline-flex;gap:6px;background:rgba(255,255,255,.3);backdrop-filter:blur(4px);border:1.5px solid rgba(255,255,255,.5);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:1rem;color:#fff;}
+  .site-header h1{font-family:'Fredoka One',cursive;font-size:3rem;color:#fff;line-height:1.1;text-shadow:0 2px 12px rgba(0,0,0,.12);margin-bottom:.5rem;}
+  .site-header p{font-size:15px;color:rgba(255,255,255,.9);font-weight:600;max-width:500px;margin:0 auto .8rem;}
+  .lang-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+  .lang-pill{background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;}
 
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background-color: var(--cream);
-    color: var(--text-dark);
-    overflow-x: hidden;
+  /* navigasi halaman 1,2,3 - style modern tanpa mengubah tampilan utama */
+  .page-nav {
+    background: white;
+    border-radius: 50px;
+    display: inline-flex;
+    margin: 1.5rem auto 0;
+    gap: 0.5rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+    padding: 0.5rem;
+    backdrop-filter: blur(2px);
   }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 20px 60px;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(245,240,232,0.88);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(92,61,46,0.1);
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--green-deep);
-    letter-spacing: 0.02em;
-  }
-  .nav-logo span { color: var(--brown-mid); }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--green-deep); }
-  .nav-cta {
-    background: var(--green-deep);
-    color: var(--cream) !important;
-    padding: 10px 22px;
-    border-radius: 100px;
-    transition: background 0.3s !important;
-  }
-  .nav-cta:hover { background: var(--green-mid) !important; color: var(--cream) !important; }
-
-  /* ── HERO ── */
-  #hero {
-    min-height: 100vh;
-    padding: 140px 60px 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+  .nav-page-btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    padding: 8px 26px;
+    border-radius: 40px;
+    border: none;
+    background: #f0f0f0;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(160deg, var(--cream) 0%, var(--cream-dark) 60%, var(--green-pale) 100%);
+    gap: 8px;
   }
-
-  #hero::before {
-    content: '';
-    position: absolute;
-    width: 700px; height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(122,181,146,0.18) 0%, transparent 70%);
-    top: -200px; right: -200px;
-    pointer-events: none;
+  .nav-page-btn i { font-size: 1rem; }
+  .nav-page-btn.active {
+    background: linear-gradient(135deg,#ff6b6b,#ff8e53);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255,107,107,0.3);
   }
-  #hero::after {
-    content: '';
-    position: absolute;
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(196,168,130,0.2) 0%, transparent 70%);
-    bottom: -100px; left: -100px;
-    pointer-events: none;
+  .nav-page-btn:hover:not(.active) {
+    background: #e2e2e2;
+    transform: translateY(-2px);
   }
-
-  .hero-text { position: relative; z-index: 2; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--green-pale);
-    color: var(--green-deep);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 8px 18px;
-    border-radius: 100px;
-    margin-bottom: 28px;
-    border: 1px solid rgba(44,74,46,0.2);
-  }
-  .hero-badge::before { content: '🌱'; font-size: 1rem; }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--green-deep);
-    margin-bottom: 20px;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--brown-mid);
-  }
-
-  .hero-subtitle {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--text-mid);
-    line-height: 1.7;
-    max-width: 440px;
-    margin-bottom: 44px;
-  }
-
-  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-
-  .btn-primary {
-    background: var(--green-deep);
-    color: var(--cream);
-    padding: 16px 36px;
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex; align-items: center; gap: 10px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 24px rgba(44,74,46,0.25);
-  }
-  .btn-primary:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(44,74,46,0.3); }
-
-  .btn-secondary {
-    background: transparent;
-    color: var(--brown-dark);
-    padding: 16px 36px;
-    border-radius: 100px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex; align-items: center; gap: 10px;
-    border: 2px solid var(--brown-light);
-    transition: all 0.3s;
-  }
-  .btn-secondary:hover { border-color: var(--brown-dark); background: var(--brown-pale); }
-
-  /* hero images - now with real image from kalendermanov.jpeg */
-  .hero-images {
-    position: relative; z-index: 2;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 16px;
-    height: 520px;
-  }
-  .img-card {
-    border-radius: 24px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(44,74,46,0.15);
-  }
-  .img-card.main { grid-row: span 2; }
-  .img-card img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-    display: block;
-  }
-  .img-card:hover img { transform: scale(1.04); }
-  .img-card .img-label {
-    position: absolute;
-    bottom: 16px; left: 16px;
-    background: rgba(245,240,232,0.92);
-    backdrop-filter: blur(8px);
-    padding: 8px 14px;
-    border-radius: 100px;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--green-deep);
-  }
-
-  /* fallback if image fails — but we use real image */
-  .img-placeholder-calendar, .img-placeholder-texture {
-    display: none; /* not needed, we have actual image */
-  }
-
-  /* ── SECTION COMMONS ── */
-  section { position: relative; overflow: hidden; }
-
-  .section-label {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--green-mid);
-    margin-bottom: 16px;
-  }
-  .section-label::before {
-    content: '';
-    display: block; width: 28px; height: 2px;
-    background: var(--green-mid);
-    border-radius: 2px;
-  }
-
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--green-deep);
-    margin-bottom: 16px;
-  }
-
-  /* wave divider */
-  .wave-divider {
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    margin-top: -2px;
-  }
-  .wave-divider svg { display: block; width: 100%; }
-
-  /* ── PRODUCT DESCRIPTION ── */
-  #product {
-    padding: 100px 60px;
-    background: var(--cream-dark);
-  }
-  .product-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 72px;
-  }
-  .product-header p {
-    font-size: 1.05rem;
-    color: var(--text-mid);
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+  .page-container {
     max-width: 1100px;
     margin: 0 auto;
+    padding: 1rem 1.5rem 3rem;
   }
-
-  .card {
-    background: var(--cream);
-    border-radius: 24px;
-    padding: 40px 36px;
-    border: 1px solid rgba(92,61,46,0.1);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+  .page {
+    display: none;
+    animation: fadePage 0.35s ease;
   }
-  .card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(44,74,46,0.12); }
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; height: 4px;
-    background: linear-gradient(90deg, var(--green-mid), var(--green-light));
-    border-radius: 24px 24px 0 0;
+  .page.active-page {
+    display: block;
   }
-  .card:nth-child(2)::before { background: linear-gradient(90deg, var(--brown-mid), var(--brown-light)); }
-  .card:nth-child(3)::before { background: linear-gradient(90deg, var(--green-deep), var(--green-mid)); }
-
-  .card-icon {
-    width: 60px; height: 60px;
-    border-radius: 16px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem;
-    margin-bottom: 24px;
-  }
-  .card:nth-child(1) .card-icon { background: var(--green-pale); }
-  .card:nth-child(2) .card-icon { background: var(--brown-pale); }
-  .card:nth-child(3) .card-icon { background: var(--green-pale); }
-
-  .card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--green-deep);
-    margin-bottom: 16px;
-  }
-  .card p {
-    font-size: 0.9rem;
-    line-height: 1.8;
-    color: var(--text-mid);
-    font-weight: 300;
-  }
-
-  .seed-list {
-    list-style: none;
-    margin-top: 12px;
-  }
-  .seed-list li {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 0.88rem;
-    color: var(--text-mid);
-    padding: 6px 0;
-    border-bottom: 1px solid rgba(92,61,46,0.08);
-    font-weight: 300;
-  }
-  .seed-list li:last-child { border-bottom: none; }
-  .seed-list li span { font-size: 1.1rem; }
-
-  .check-list {
-    list-style: none;
-    margin-top: 12px;
-  }
-  .check-list li {
-    display: flex; align-items: flex-start; gap: 10px;
-    font-size: 0.88rem;
-    color: var(--text-mid);
-    padding: 7px 0;
-    line-height: 1.5;
-    font-weight: 300;
-  }
-  .check-list li::before {
-    content: '✓';
-    min-width: 20px; height: 20px;
-    background: var(--green-pale);
-    color: var(--green-deep);
-    font-weight: 700;
-    font-size: 0.75rem;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    margin-top: 1px;
-  }
-
-  /* ── VIDEO SECTION ── */
-  #video {
-    padding: 100px 60px;
-    background: var(--green-deep);
-    text-align: center;
-    position: relative;
-  }
-  #video::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 20% 50%, rgba(122,181,146,0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 50%, rgba(196,168,130,0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  /* decorative leaves */
-  .leaf-deco {
-    position: absolute;
-    opacity: 0.08;
-    pointer-events: none;
-  }
-  .leaf-deco svg { fill: var(--green-light); }
-
-  #video .section-label { color: var(--green-light); justify-content: center; }
-  #video .section-label::before { background: var(--green-light); }
-  #video h2 { color: var(--cream); }
-  #video .section-desc {
-    font-size: 1.05rem;
-    color: rgba(245,240,232,0.7);
-    max-width: 500px;
-    margin: 0 auto 52px;
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .video-frame {
-    max-width: 700px;
-    margin: 0 auto 48px;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.35);
-    border: 2px solid rgba(122,181,146,0.2);
-    background: rgba(0,0,0,0.4);
-    aspect-ratio: 16/9;
-    display: flex; align-items: center; justify-content: center;
-    position: relative; z-index: 1;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  .video-frame:hover { transform: scale(1.01); }
-  .play-btn {
-    width: 80px; height: 80px;
-    background: rgba(245,240,232,0.95);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform 0.3s, background 0.3s;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-  }
-  .video-frame:hover .play-btn { transform: scale(1.1); background: white; }
-  .play-btn::after {
-    content: '';
-    border-left: 24px solid var(--green-deep);
-    border-top: 16px solid transparent;
-    border-bottom: 16px solid transparent;
-    margin-left: 5px;
-  }
-  .video-thumbnail-text {
-    position: absolute;
-    bottom: 20px; left: 24px;
-    color: rgba(245,240,232,0.8);
-    font-size: 0.8rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-
-  .btn-watch {
-    background: var(--brown-light);
-    color: var(--green-deep);
-    padding: 18px 48px;
-    border-radius: 100px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex; align-items: center; gap: 12px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    position: relative; z-index: 1;
-  }
-  .btn-watch:hover { background: var(--cream); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,0.3); }
-  .btn-watch svg { width: 22px; height: 22px; }
-
-  /* ── SWOT ── */
-  #swot {
-    padding: 100px 60px;
-    background: var(--cream);
-  }
-  .swot-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 72px;
-  }
-  .swot-header p {
-    font-size: 1rem;
-    color: var(--text-mid);
-    line-height: 1.8;
-    font-weight: 300;
-  }
-
-  .swot-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .swot-box {
-    border-radius: 24px;
-    padding: 40px 36px;
-    position: relative;
-    overflow: hidden;
-  }
-  .swot-box::after {
-    content: attr(data-letter);
-    position: absolute;
-    bottom: -10px; right: 16px;
-    font-family: 'Playfair Display', serif;
-    font-size: 8rem;
-    font-weight: 900;
-    opacity: 0.07;
-    line-height: 1;
-  }
-
-  .swot-box.strengths {
-    background: linear-gradient(135deg, var(--green-deep), #3d6640);
-    color: var(--cream);
-  }
-  .swot-box.weaknesses {
-    background: linear-gradient(135deg, var(--brown-pale), var(--cream-dark));
-    color: var(--text-dark);
-  }
-  .swot-box.opportunities {
-    background: linear-gradient(135deg, var(--green-pale), #d8edd8);
-    color: var(--text-dark);
-  }
-  .swot-box.threats {
-    background: linear-gradient(135deg, var(--brown-dark), #7a4f3d);
-    color: var(--cream);
-  }
-
-  .swot-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    opacity: 0.9;
-  }
-  .swot-tag .swot-icon {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem;
-    background: rgba(255,255,255,0.2);
-  }
-
-  .swot-box h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
-  .swot-box.strengths h3, .swot-box.threats h3 { color: var(--cream); }
-  .swot-box.weaknesses h3, .swot-box.opportunities h3 { color: var(--green-deep); }
-
-  .swot-items {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 10px;
-    position: relative; z-index: 1;
-  }
-  .swot-items li {
-    display: flex; align-items: flex-start; gap: 10px;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    font-weight: 300;
-  }
-  .swot-box.strengths .swot-items li,
-  .swot-box.threats .swot-items li { color: rgba(245,240,232,0.9); }
-  .swot-box.weaknesses .swot-items li,
-  .swot-box.opportunities .swot-items li { color: var(--text-mid); }
-
-  .swot-dot {
-    min-width: 6px; height: 6px;
-    border-radius: 50%;
-    margin-top: 7px;
-  }
-  .strengths .swot-dot { background: var(--green-light); }
-  .weaknesses .swot-dot { background: var(--brown-mid); }
-  .opportunities .swot-dot { background: var(--green-mid); }
-  .threats .swot-dot { background: var(--brown-light); }
-
-  /* ── CONTACT / FOOTER ── */
-  #contact {
-    padding: 100px 60px 0;
-    background: linear-gradient(160deg, var(--brown-dark) 0%, var(--green-deep) 100%);
-    position: relative;
-    overflow: hidden;
-  }
-  #contact::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(ellipse at 30% 70%, rgba(122,181,146,0.12) 0%, transparent 50%),
-      radial-gradient(ellipse at 70% 30%, rgba(196,168,130,0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .contact-inner {
-    position: relative; z-index: 1;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  #contact .section-label { color: var(--green-light); justify-content: center; }
-  #contact .section-label::before { background: var(--green-light); }
-  #contact h2 { color: var(--cream); font-size: clamp(1.8rem, 3vw, 2.8rem); }
-  #contact .contact-desc {
-    font-size: 1rem;
-    color: rgba(245,240,232,0.7);
-    line-height: 1.8;
-    font-weight: 300;
-    margin-bottom: 52px;
-  }
-
-  .contact-card {
-    background: rgba(245,240,232,0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(245,240,232,0.15);
-    border-radius: 28px;
-    padding: 48px;
-    margin-bottom: 48px;
-  }
-  .wa-icon-wrap {
-    width: 80px; height: 80px;
-    background: #25D366;
-    border-radius: 24px;
-    display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 24px;
-    box-shadow: 0 8px 32px rgba(37,211,102,0.35);
-  }
-  .wa-icon-wrap svg { width: 42px; height: 42px; fill: white; }
-
-  .contact-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--cream);
-    margin-bottom: 8px;
-  }
-  .contact-number {
-    font-size: 1.2rem;
-    color: rgba(245,240,232,0.8);
-    letter-spacing: 0.06em;
-    margin-bottom: 32px;
-    font-weight: 300;
-  }
-
-  .btn-wa {
-    background: #25D366;
-    color: white;
-    padding: 18px 52px;
-    border-radius: 100px;
-    font-size: 1.05rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: inline-flex; align-items: center; gap: 12px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 32px rgba(37,211,102,0.35);
-    letter-spacing: 0.02em;
-  }
-  .btn-wa:hover { background: #22c55e; transform: translateY(-3px); box-shadow: 0 16px 48px rgba(37,211,102,0.4); }
-  .btn-wa svg { width: 22px; height: 22px; fill: white; }
-
-  .footer-bottom {
-    padding: 32px 60px;
-    border-top: 1px solid rgba(245,240,232,0.1);
-    display: flex; align-items: center; justify-content: space-between;
-    margin-top: 48px;
-    position: relative; z-index: 1;
-  }
-  .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    color: var(--cream);
-    font-weight: 700;
-  }
-  .footer-logo span { color: var(--green-light); }
-  .footer-copy {
-    font-size: 0.8rem;
-    color: rgba(245,240,232,0.5);
-    font-weight: 300;
-  }
-  .footer-tagline {
-    font-size: 0.8rem;
-    color: rgba(245,240,232,0.4);
-    font-style: italic;
-    font-family: 'Playfair Display', serif;
-  }
-
-  /* ── LEAF SVG ACCENTS ── */
-  .organic-divider {
-    width: 100%;
-    line-height: 0;
-    margin-top: -1px;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
+  @keyframes fadePage {
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+
+  /* ========== HALAMAN 1: VIDEO INTERAKTIF (gaya segar) ========== */
+  .video-hero {
+    background: linear-gradient(145deg, #1e2f4b, #0f1a2c);
+    border-radius: 32px;
+    padding: 2rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-align: center;
   }
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .feat-card {
+    background: white;
+    border-radius: 28px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+    border: 1px solid #ffeacb;
+  }
+  .feat-card i {
+    font-size: 2.2rem;
+    background: #ff6b6b20;
+    padding: 12px;
+    border-radius: 50%;
+    color: #ff6b6b;
+    margin-bottom: 0.5rem;
+  }
+  .btn-cta {
+    background: linear-gradient(135deg,#ff6b6b,#f39c12);
+    border: none;
+    padding: 10px 28px;
+    border-radius: 60px;
+    font-weight: 800;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 0.5rem;
   }
 
-  .hero-text { animation: fadeUp 0.9s ease both; }
-  .hero-images { animation: fadeUp 0.9s ease 0.2s both; }
-  .hero-images .img-card.main { animation: float 6s ease-in-out infinite 1s; }
-
-  .card { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s, box-shadow 0.3s; }
-  .card.visible { opacity: 1; transform: translateY(0); }
-  .card:nth-child(2) { transition-delay: 0.15s; }
-  .card:nth-child(3) { transition-delay: 0.3s; }
-
-  .swot-box { opacity: 0; transform: scale(0.97); transition: opacity 0.5s, transform 0.5s; }
-  .swot-box.visible { opacity: 1; transform: scale(1); }
-  .swot-box:nth-child(2) { transition-delay: 0.1s; }
-  .swot-box:nth-child(3) { transition-delay: 0.2s; }
-  .swot-box:nth-child(4) { transition-delay: 0.3s; }
-
-  /* ── HAMBURGER MOBILE ── */
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--green-deep); border-radius: 2px; transition: all 0.3s; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    #hero { grid-template-columns: 1fr; padding: 120px 24px 60px; text-align: center; gap: 40px; }
-    .hero-subtitle { margin: 0 auto 40px; }
-    .hero-buttons { justify-content: center; }
-    .hero-images { height: 320px; }
-    #product, #video, #swot, #contact { padding: 72px 24px; }
-    .cards-grid { grid-template-columns: 1fr; }
-    .swot-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
-    .contact-card { padding: 32px 24px; }
+  /* ========== HALAMAN 2: PANDUAN PERMAINAN ========== */
+  .guide-step {
+    background: white;
+    border-radius: 28px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+    border-left: 8px solid #ffaa44;
   }
-  @media (max-width: 600px) {
-    .hero-images { height: 260px; grid-template-columns: 3fr 2fr; gap: 10px; }
-    .video-frame { border-radius: 16px; }
+  .step-num {
+    display: inline-block;
+    background: #ffaa44;
+    color: #1e2f4b;
+    font-weight: 800;
+    width: 36px;
+    height: 36px;
+    border-radius: 40px;
+    text-align: center;
+    line-height: 36px;
+    margin-right: 12px;
+  }
+  .badge-lang {
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 36px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-block;
+    margin: 5px 5px 0 0;
   }
 
-  /* force images to show if file exists */
-  .img-card img {
-    background: var(--cream-dark); /* fallback */
+  /* ========== HALAMAN 3: ROLEPLAY ASLI (tidak ada perubahan tampilan) ========== */
+  .scenario-box{background:#fff;border-radius:16px;padding:1.2rem 1.5rem;margin-bottom:2rem;border-left:5px solid #ff6b6b;box-shadow:0 4px 20px rgba(255,107,107,.12);}
+  .scenario-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#ff6b6b;margin-bottom:5px;}
+  .controls-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.8rem;}
+  .progress-text{font-size:13px;font-weight:700;color:#888;}
+  .reset-btn{background:linear-gradient(135deg,#ff6b6b,#ff8e53);color:#fff;border:none;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:8px 22px;border-radius:20px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 14px rgba(255,107,107,.3);}
+  .filter-row{display:flex;gap:8px;margin-bottom:1.8rem;flex-wrap:wrap;}
+  .filter-btn{background:#f0f0f0;border:none;font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;color:#666;}
+  .filter-btn.active,.filter-btn:hover{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;box-shadow:0 3px 10px rgba(102,126,234,.3);}
+  .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:1rem;margin-bottom:2rem;}
+  .card-outer{perspective:900px;height:210px;cursor:pointer;}
+  .card-inner{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,0,.2,1);}
+  .card-outer.flipped .card-inner{transform:rotateY(180deg);}
+  .card-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;text-align:center;}
+  .card-back{gap:8px;border:none;position:relative;overflow:hidden;background:linear-gradient(135deg,#ff6b6b,#ee5a24);}
+  .card-back::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.06) 0,rgba(255,255,255,.06) 2px,transparent 2px,transparent 12px);border-radius:16px;}
+  .card-num{font-family:'Fredoka One',cursive;font-size:2.6rem;color:rgba(255,255,255,.3);line-height:1;}
+  .card-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);}
+  .tap-hint{font-size:11px;color:rgba(255,255,255,.45);font-style:italic;margin-top:4px;}
+  .card-front{background:#fff;transform:rotateY(180deg);border:2px solid transparent;box-shadow:0 8px 24px rgba(0,0,0,.1);}
+  .role-icon{font-size:2.2rem;line-height:1;margin-bottom:2px;}
+  .role-title{font-family:'Fredoka One',cursive;font-size:1rem;line-height:1.2;margin-bottom:4px;}
+  .role-desc{font-size:10.5px;color:#888;line-height:1.5;}
+  .role-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-top:5px;background:#fff0f0;color:#ee5a24;}
+  .lang-badge{display:flex;gap:4px;margin-top:6px;justify-content:center;flex-wrap:wrap;}
+  .lang-dot{font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px;}
+  .chat-section{margin-top:1rem;}
+  .chat-panel{background:#fff;border-radius:20px;overflow:hidden;margin-bottom:1.5rem;box-shadow:0 8px 30px rgba(0,0,0,.08);}
+  .chat-header{padding:.9rem 1.2rem;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff6b6b,#ff8e53);}
+  .chat-header-icon{font-size:1.5rem;line-height:1;}
+  .chat-header-info{flex:1;}
+  .chat-header-title{font-family:'Fredoka One',cursive;font-size:1rem;color:#fff;}
+  .chat-header-sub{font-size:11px;color:rgba(255,255,255,.8);font-weight:600;}
+  .lang-tabs{display:flex;border-bottom:2px solid #f0f0f0;}
+  .lang-tab{flex:1;padding:.7rem;text-align:center;font-size:12px;font-weight:800;color:#aaa;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;margin-bottom:-2px;}
+  .lang-tab.active{color:#2d2d2d;border-bottom-color:currentColor;}
+  .lang-tab[data-lang="id"].active{color:#ff6b6b;border-bottom-color:#ff6b6b;}
+  .lang-tab[data-lang="en"].active{color:#0984e3;border-bottom-color:#0984e3;}
+  .lang-tab[data-lang="ar"].active{color:#20bf6b;border-bottom-color:#20bf6b;}
+  .lang-content{display:none;}
+  .lang-content.active{display:block;}
+  .chat-body{padding:1.2rem 1rem;display:flex;flex-direction:column;gap:.6rem;background:#f8f9fa;min-height:100px;}
+  .bubble-row{display:flex;gap:7px;align-items:flex-end;}
+  .bubble-row.right{flex-direction:row-reverse;}
+  .av{width:30px;height:30px;border-radius:50%;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
+  .bwrap{display:flex;flex-direction:column;max-width:72%;}
+  .bubble{padding:.55rem .9rem;border-radius:16px;font-size:13px;line-height:1.55;font-weight:600;}
+  .bubble.left-b{background:#fff;border:1.5px solid #eee;border-bottom-left-radius:4px;color:#2d2d2d;}
+  .bubble.right-b{color:#fff;border-bottom-right-radius:4px;}
+  .bubble.ar-b{font-family:'Amiri',serif;font-size:14px;line-height:1.9;direction:rtl;text-align:right;}
+  .ar-latin{font-family:'Nunito',sans-serif;font-size:10.5px;font-weight:600;color:rgba(255,255,255,.7);margin-top:3px;direction:ltr;text-align:left;font-style:italic;}
+  .chat-tip{font-size:12px;font-weight:700;padding:.7rem 1rem;margin:.3rem 1rem 1rem;border-radius:12px;background:#ffe8e0;color:#ff6b6b;}
+
+  @media(prefers-color-scheme: dark){
+    body{background:#1a1a2e;}
+    .site-header{background:linear-gradient(135deg,#c0392b,#e67e22,#f39c12);}
+    .page-nav{background:#16213e;}
+    .nav-page-btn{background:#2a2a4a;color:#ccc;}
+    .nav-page-btn.active{background:linear-gradient(135deg,#ff6b6b,#ff8e53);}
+    .feat-card,.guide-step,.scenario-box,.card-front,.chat-panel{background:#16213e;border-color:#2a2a4a;color:#eee;}
+    .card-front .role-desc{color:#aaa;}
+    .chat-body{background:#0f0f23;}
+    .bubble.left-b{background:#16213e;border-color:#2a2a4a;color:#eee;}
   }
+  footer{text-align:center;padding:2rem;font-size:0.75rem;color:#aaa;}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Plantable<span>Paper</span></div>
-  <ul class="nav-links">
-    <li><a href="#product">Produk</a></li>
-    <li><a href="#video">Proses</a></li>
-    <li><a href="#swot">Keunggulan</a></li>
-    <li><a href="#contact" class="nav-cta">Pesan Sekarang</a></li>
-  </ul>
-  <button class="hamburger" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='flex'?'none':'flex'" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- HERO with actual uploaded image kalendermanov.jpeg -->
-<section id="hero">
-  <div class="hero-text">
-    <div class="hero-badge">100% Ramah Lingkungan &amp; Berkelanjutan</div>
-    <h1>Tanam Kembali,<br><em>Hidupkan</em> Kembali.</h1>
-    <p class="hero-subtitle">Plantable Paper – Kertas yang Berubah Menjadi Bunga dan Sayuran. Baca hari ini, tanam esok hari.</p>
-    <div class="hero-buttons">
-      <a href="#contact" class="btn-primary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-        Pesan Sekarang
-      </a>
-      <a href="#product" class="btn-secondary">
-        Pelajari Lebih Lanjut →
-      </a>
+<header class="site-header">
+  <div class="blob" style="position:absolute; width:200px;height:200px;background:#fff;opacity:.18;top:-80px;left:-60px;border-radius:50%;"></div>
+  <div class="header-inner">
+    <div class="badge">🎓 3 Bahasa · Interaktif</div>
+    <h1>Roleplay Percakapan</h1>
+    <p>Video interaktif + Panduan + Kartu Roleplay (Indonesia, Inggris, Arab dengan harakat & latin)</p>
+    <div class="lang-pills">
+      <div class="lang-pill">🇮🇩 Indonesia</div>
+      <div class="lang-pill">🇬🇧 English</div>
+      <div class="lang-pill">🇸🇦 العربية (مُشَكَّل)</div>
     </div>
   </div>
+</header>
 
-  <div class="hero-images">
-    <!-- main large card: use the uploaded kalendermanov.jpeg -->
-    <div class="img-card main">
-      <img src="kalendermanov.jpeg" alt="Plantable Paper Calendar May 2027 – tanam setelah selesai" loading="eager">
-      <div class="img-label">🗓️ Kalender Plantable – MEI 2027</div>
-    </div>
-    <!-- second image: reuse same file as close-up texture (still meaningful) -->
-    <div class="img-card">
-      <img src="tekstur1.jpeg" alt="Tekstur kertas dengan benih tersemat – detail" loading="lazy">
-      <div class="img-label">🔬 Close-up Tekstur & Benih</div>
-    </div>
-    <!-- third image: again the same image, but we can crop with object-position, but it's fine as illustration -->
-    <div class="img-card">
-      <img src="kalendermanov.jpeg" alt="Hasil tanaman yang tumbuh dari plantable paper" loading="lazy" style="object-position: 80% center;">
-      <div class="img-label">🌱 Hasil Tumbuh Sayuran</div>
-    </div>
+<!-- navigasi halaman 1,2,3 (berurutan) -->
+<div style="display: flex; justify-content: center; margin-top: 1.2rem;">
+  <div class="page-nav">
+    <button class="nav-page-btn active" data-page="page1"><i class="fas fa-video"></i> 1. Video Interaktif</button>
+    <button class="nav-page-btn" data-page="page2"><i class="fas fa-compass"></i> 2. Panduan</button>
+    <button class="nav-page-btn" data-page="page3"><i class="fas fa-gamepad"></i> 3. Roleplay Cards</button>
   </div>
-</section>
-
-<!-- WAVE to PRODUCT -->
-<div class="wave-divider" style="background:var(--cream);">
-  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" height="60">
-    <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" fill="#EDE5D4"/>
-  </svg>
 </div>
 
-<!-- PRODUCT DESCRIPTION -->
-<section id="product">
-  <div class="product-header">
-    <div class="section-label">Tentang Produk</div>
-    <h2>Lebih dari Sekadar Kertas</h2>
-    <p>Setiap lembar Plantable Paper membawa misi: mengurangi limbah sekaligus menumbuhkan kehidupan baru.</p>
+<!-- Halaman 1 : Video Interaktif -->
+<div id="page1" class="page active-page">
+  <div class="page-container">
+    <div class="video-hero">
+      <h2><i class="fas fa-play-circle"></i> Video Interaktif – Belajar Percakapan 3 Bahasa</h2>
+      <p>Tonton contoh roleplay, tirukan pelafalan, lalu praktikkan dengan kartu di halaman 3.</p>
+      <div class="video-wrapper">
+        <!-- Ganti URL youtube berikut dengan videomu sendiri (contoh interaktif roleplay) -->
+        <iframe src="https://video.pictory.ai/20260510161123948019dacd769fd467ab67c3ca293e4d584/20260510161415440FQNH7KbexGcMqul" title="Roleplay demo video interaktif" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption" style="background:rgba(255,255,245,0.2); display:inline-block; padding:4px 16px; border-radius:30px;"><i class="fas fa-language"></i> Contoh tema: ajak liburan · pinjam buku · hobi & cita-cita</div>
+      <button class="btn-cta" onclick="switchToPage(3)"><i class="fas fa-arrow-right"></i> Coba Roleplay Cards →</button>
+    </div>
+    <div class="feature-grid">
+      <div class="feat-card"><i class="fas fa-language"></i><h3>3 Bahasa + Latin</h3><p>Indonesia, Inggris, Arab lengkap harakat & tulisan latin memudahkan pemula.</p></div>
+      <div class="feat-card"><i class="fas fa-clone"></i><h3>6 Tema Populer</h3><p>Liburan, meminjam barang, hobi, cita-cita, perpustakaan, pelajaran favorit.</p></div>
+      <div class="feat-card"><i class="fas fa-chalkboard-user"></i><h3>Metode Flip Card</h3><p>Klik kartu, muncul dialog & tips percakapan eksklusif.</p></div>
+    </div>
+    <p style="text-align:center; font-style:italic;">💡 Tips: putar video, ulangi dialog, lalu gunakan kartu roleplay untuk latihan mandiri atau berpasangan.</p>
   </div>
-
-  <div class="cards-grid">
-    <div class="card">
-      <div class="card-icon">📄</div>
-      <h3>Apa itu Plantable Paper?</h3>
-      <p>Plantable paper adalah kertas daur ulang khusus yang mengandung biji-bijian di dalam seratnya. Anda bisa membaca, lalu menanamnya! Siram dan rawat, maka biji akan tumbuh menjadi tanaman yang hidup dan subur.</p>
-    </div>
-    <div class="card">
-      <div class="card-icon">🌸</div>
-      <h3>Pilihan Benih</h3>
-      <p>Kami menyediakan varian benih sayuran dan bunga pilihan, dipilih dengan cermat untuk kemudahan tumbuh dan nilai estetika.</p>
-      <ul class="seed-list">
-        <li><span>🌿</span> Sawi Caismim</li>
-        <li><span>🥬</span> Sawi Pakcoy</li>
-        <li><span>🌿</span> Bayam Hijau</li>
-  
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-icon">♻️</div>
-      <h3>Keunggulan Bahan Baku</h3>
-      <p>Material terbaik, proses terjamin:</p>
-      <ul class="check-list">
-        <li>Menggunakan limbah kulit jagung sebagai salah satu bahan utamanya, dan kompos alami untuk mempermudah tumbuhnya benih</li>
-        <li>Terbuat 100% dari kertas daur ulang pasca-konsumsi</li>
-        <li>Kertas mudah terurai</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- WAVE to VIDEO -->
-<div class="wave-divider" style="background:var(--cream-dark);">
-  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" height="80">
-    <path d="M0,80 C240,20 480,80 720,40 C960,0 1200,60 1440,80 L1440,80 L0,80 Z" fill="#2C4A2E"/>
-  </svg>
 </div>
 
-<!-- VIDEO SECTION with updated YouTube link -->
-<section id="video">
-  <!-- decorative leaf -->
-  <svg class="leaf-deco" style="top:-40px;left:-60px;width:280px;" viewBox="0 0 200 200"><path d="M100,10 C140,10 180,50 180,100 C180,150 140,190 100,190 C60,190 20,150 20,100 C20,50 60,10 100,10 Z M100,30 C70,30 40,60 40,100 C40,140 70,170 100,170 C130,170 160,140 160,100 C160,60 130,30 100,30 Z"/></svg>
-  <svg class="leaf-deco" style="bottom:-20px;right:-40px;width:200px;transform:rotate(180deg);" viewBox="0 0 200 200"><path d="M100,10 C140,10 180,50 180,100 C180,150 140,190 100,190 C60,190 20,150 20,100 C20,50 60,10 100,10 Z"/></svg>
-
-  <div style="position:relative;z-index:1;text-align:center;">
-    <div class="section-label">Proses Pembuatan</div>
-    <h2 style="color:var(--cream);">Bagaimana Cara<br><em style="font-style:italic;color:var(--brown-light);">Membuatnya?</em></h2>
-    <p class="section-desc">Dari kertas bekas menjadi kertas biji — saksikan transformasi ajaib yang menghubungkan daur ulang dengan kehidupan baru.</p>
-
-    <!-- Video thumbnail with direct link to new tutorial: https://youtu.be/Tu_QNB-aTmg -->
-    <div class="video-frame" onclick="window.open('https://youtu.be/Tu_QNB-aTmg','_blank')">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,74,46,0.8),rgba(92,61,46,0.6));display:flex;align-items:center;justify-content:center;">
-        <div style="text-align:center;">
-          <div class="play-btn"></div>
-          <p style="color:rgba(245,240,232,0.8);font-size:0.8rem;margin-top:16px;letter-spacing:0.08em;text-transform:uppercase;">Klik untuk menonton</p>
-        </div>
-      </div>
-      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:-1;">
-        <span style="font-size:5rem;opacity:0.15;">🌿</span>
-      </div>
-      <div class="video-thumbnail-text">Proses Pembuatan Plantable Paper (Tutorial)</div>
+<!-- Halaman 2 : Panduan Permainan -->
+<div id="page2" class="page">
+  <div class="page-container">
+    <h2 style="margin-bottom: 1rem;"><i class="fas fa-book-open"></i> Panduan Bermain Roleplay Cards</h2>
+    <div class="guide-step"><span class="step-num">1</span> <strong>Pilih tema kartu</strong> — Di halaman <strong>Roleplay Cards (halaman 3)</strong> tersedia 6 kartu (Liburan, Meminjam, Hobi, Cita-cita, Perpustakaan, Pelajaran Favorit).<br><span class="badge-lang"><i class="fas fa-filter"></i> Gunakan tombol filter untuk menyaring topik yang ingin dilatih.</span></div>
+    <div class="guide-step"><span class="step-num">2</span> <strong>Klik kartu untuk membuka skenario</strong> — Setiap kartu berisi percakapan singkat antara dua orang. Setelah diklik, akan muncul <strong>Panel Percakapan</strong> dengan tiga tab bahasa: 🇮🇩 Indonesia, 🇬🇧 English, 🇸🇦 العربية (lengkap harakat + latin).<br><span class="badge-lang"><i class="fas fa-comment-dots"></i> Giliran bicara (pembeli/penjual, teman, dll) sudah tersedia.</span></div>
+    <div class="guide-step"><span class="step-num">3</span> <strong>Latihan mandiri / berpasangan</strong> — Bacalah dialog dengan ekspresi yang sesuai. Bahasa Arab dilengkapi teks latin di bawah setiap kalimat agar mudah membaca. Cobalah berganti peran bersama teman atau guru.<br><span class="badge-lang"><i class="fas fa-lightbulb"></i> Setiap tema memiliki "tips komunikasi" untuk meningkatkan kefasihan.</span></div>
+    <div class="guide-step"><span class="step-num">4</span> <strong>Gunakan video interaktif (halaman 1) untuk referensi pelafalan</strong> — Putar video untuk melihat contoh nyata intonasi. Ulangi sampai terbiasa, lalu kembali ke kartu untuk praktik mandiri.<br><span class="badge-lang"><i class="fas fa-arrow-rotate-right"></i> Tombol "Acak Ulang" akan mereset kartu dan urutan.</span></div>
+    <div style="background:#ffe7ce; border-radius:20px; padding:1.2rem; margin-top:1rem;">
+      <i class="fas fa-star-of-life" style="color:#e67e22;"></i> <strong>Tips sukses:</strong> Mulai dari bahasa Indonesia, lanjut ke Inggris, baru tantang dirimu dengan Arab! Jangan takut salah — roleplay dirancang untuk belajar sambil bermain.
     </div>
-
-    <!-- Updated button link to new tutorial -->
-    <a href="https://youtu.be/Tu_QNB-aTmg" target="_blank" class="btn-watch">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.43 3.5 12 3.5 12 3.5s-7.43 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.15 0 12 0 12s0 3.85.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.57 20.5 12 20.5 12 20.5s7.43 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.85 24 12 24 12s0-3.85-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-      Tonton Proses Pembuatannya
-    </a>
   </div>
-</section>
-
-<!-- WAVE to SWOT -->
-<div class="wave-divider" style="background:var(--green-deep);">
-  <svg viewBox="0 0 1440 70" preserveAspectRatio="none" height="70">
-    <path d="M0,0 L1440,0 L1440,70 C1080,10 360,70 0,70 Z" fill="#F5F0E8"/>
-  </svg>
 </div>
 
-<!-- SWOT -->
-<section id="swot">
-  <div class="swot-header">
-    <div class="section-label">Analisis</div>
-    <h2>Kelebihan &amp; Potensi<br>Plantable Paper</h2>
-    <p>Transparansi adalah bagian dari komitmen kami. Berikut gambaran jujur tentang produk dan pasar yang kami hadapi.</p>
+<!-- Halaman 3 : Roleplay Cards original (isi lengkap dengan 6 tema, 3 bahasa, harakat dan latin) -->
+<div id="page3" class="page">
+  <div class="page-container">
+    <div class="scenario-box">
+      <div class="scenario-label">🎭 Skenario / Roleplay</div>
+      <div class="scenario-text">1. Mengajak teman liburan ✈️ | 2. Meminjam barang teman 📚 | 3. Percakapan tentang hobi 🎸<br>4. Percakapan tentang cita-cita 🚀 | 5. Percakapan di perpustakaan 📖 | 6. Percakapan pelajaran favorit 🧪</div>
+    </div>
+    <div class="controls-row">
+      <span class="progress-text" id="progress">0 dari 6 kartu terbuka</span>
+      <button class="reset-btn" onclick="resetCards()">↺ Acak Ulang</button>
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterCards('all',this)">Semua</button>
+      <button class="filter-btn" onclick="filterCards('Liburan',this)">Liburan</button>
+      <button class="filter-btn" onclick="filterCards('Meminjam',this)">Meminjam</button>
+      <button class="filter-btn" onclick="filterCards('Hobi',this)">Hobi</button>
+      <button class="filter-btn" onclick="filterCards('Cita-cita',this)">Cita-cita</button>
+      <button class="filter-btn" onclick="filterCards('Perpus',this)">Perpustakaan</button>
+      <button class="filter-btn" onclick="filterCards('Favorit',this)">Pelajaran Favorit</button>
+    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
+    <div class="chat-section" id="chatSection"></div>
   </div>
-
-  <div class="swot-grid">
-    <div class="swot-box strengths" data-letter="S">
-      <div class="swot-tag">
-        <div class="swot-icon">💪</div>
-        Kekuatan (Strengths)
-      </div>
-      <h3>Apa yang Membuat Kami Unggul</h3>
-      <ul class="swot-items">
-        <li><span class="swot-dot"></span>Produk inovatif dan unik di pasaran Indonesia</li>
-        <li><span class="swot-dot"></span>Ramah lingkungan – mendukung gaya hidup berkelanjutan</li>
-        <li><span class="swot-dot"></span>Nilai estetika tinggi, cocok sebagai hadiah premium</li>
-        <li><span class="swot-dot"></span>Edukatif, menarik minat segala usia</li>
-        <li><span class="swot-dot"></span>Multi-fungsi: produk tulis-menulis sekaligus media tanam</li>
-      </ul>
-    </div>
-
-    <div class="swot-box weaknesses" data-letter="W">
-      <div class="swot-tag" style="color:var(--brown-dark);">
-        <div class="swot-icon" style="background:rgba(92,61,46,0.15);">⚠️</div>
-        Kelemahan (Weaknesses)
-      </div>
-      <h3>Area yang Perlu Diperhatikan</h3>
-      <ul class="swot-items">
-        <li><span class="swot-dot"></span>Harga produksi lebih tinggi dibanding kertas konvensional</li>
-        <li><span class="swot-dot"></span>Perawatan produk harus dijaga tetap kering sebelum digunakan</li>
-        <li><span class="swot-dot"></span>Waktu tumbuh tanaman bervariasi tergantung jenis benih</li>
-      </ul>
-    </div>
-
-    <div class="swot-box opportunities" data-letter="O">
-      <div class="swot-tag" style="color:var(--green-deep);">
-        <div class="swot-icon" style="background:rgba(44,74,46,0.15);">🚀</div>
-        Peluang (Opportunities)
-      </div>
-      <h3>Potensi Pasar yang Terbuka</h3>
-      <ul class="swot-items">
-        <li><span class="swot-dot"></span>Tren gaya hidup hijau dan sadar lingkungan terus meningkat</li>
-        <li><span class="swot-dot"></span>Permintaan corporate gift berkelanjutan dari perusahaan ESG</li>
-        <li><span class="swot-dot"></span>Potensi kolaborasi dengan acara dan event lingkungan hidup</li>
-        <li><span class="swot-dot"></span>Pasar ekspor ke negara-negara dengan kesadaran lingkungan tinggi</li>
-      </ul>
-    </div>
-
-    <div class="swot-box threats" data-letter="T">
-      <div class="swot-tag">
-        <div class="swot-icon">🛡️</div>
-        Ancaman (Threats)
-      </div>
-      <h3>Tantangan yang Dihadapi</h3>
-      <ul class="swot-items">
-        <li><span class="swot-dot"></span>Produk serupa mulai bermunculan di pasar</li>
-        <li><span class="swot-dot"></span>Persepsi konsumen bahwa merawat tanaman itu sulit</li>
-        <li><span class="swot-dot"></span>Harga kertas biasa yang jauh lebih murah di pasaran</li>
-        <li><span class="swot-dot"></span>Keterbatasan distributor yang memahami produk ini</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- WAVE to CONTACT -->
-<div class="wave-divider" style="background:var(--cream);">
-  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" height="80">
-    <path d="M0,0 C360,80 1080,0 1440,80 L1440,80 L0,80 Z" fill="#5C3D2E"/>
-    <path d="M0,0 C480,60 960,20 1440,60 L1440,80 L0,80 Z" fill="#2C4A2E" opacity="0.5"/>
-  </svg>
 </div>
 
-<!-- CONTACT & FOOTER -->
-<section id="contact">
-  <div class="contact-inner">
-    <div class="section-label">Hubungi Kami</div>
-    <h2>Tertarik untuk Memesan<br>atau Menjadi Reseller?</h2>
-    <p class="contact-desc">Kami melayani pesanan personal, corporate gift, event, hingga kemitraan reseller. Mari berbicara langsung dengan tim kami!</p>
-
-    <div class="contact-card">
-      <div class="wa-icon-wrap">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-      </div>
-      <div class="contact-name">Plantable Paper Indonesia</div>
-      <div class="contact-number">+62 812-3456-7890</div>
-      <a href="https://wa.me/6281234567890?text=Halo!%20Saya%20tertarik%20dengan%20produk%20Plantable%20Paper.%20Boleh%20minta%20info%20lebih%20lanjut?" target="_blank" class="btn-wa">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-        Chat Sekarang via WhatsApp
-      </a>
-    </div>
-
-    <!-- decorative leaf accents -->
-    <div style="display:flex;justify-content:center;gap:16px;opacity:0.3;margin-top:8px;">
-      <span style="font-size:1.5rem;">🌿</span>
-      <span style="font-size:1.5rem;">🌱</span>
-      <span style="font-size:1.5rem;">🌿</span>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-logo">Plantable<span>Paper</span></div>
-    <div class="footer-copy">© 2025 Plantable Paper Indonesia. Semua hak dilindungi.</div>
-    <div class="footer-tagline">Baca. Tanam. Tumbuh. 🌱</div>
-  </div>
-</section>
+<footer>© Roleplay Cards · 3 bahasa · Desain interaktif untuk pembelajaran percakapan</footer>
 
 <script>
-  // Intersection Observer for scroll animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.15 });
+// ========== DATA 6 TEMA (LENGKAP DENGAN HARAKAT & LATIN) ==========
+const rolesData = [
+  { icon:"✈️", title:"Ajak Liburan", tag:"Liburan", theme:"theme-blue", desc:"Mengajak teman berlibur ke pantai",
+    id:[{side:"right",name:"Andi",text:"Hei, liburan nanti mau ke mana?"},{side:"left",name:"Budi",text:"Belum ada rencana, santai di rumah aja."},{side:"right",name:"Andi",text:"Ayo kita ke Pantai Kuta!"},{side:"left",name:"Budi",text:"Wah asyik! Kapan berangkat?"},{side:"right",name:"Andi",text:"Sabtu pagi, naik motor saja ya?"},{side:"left",name:"Budi",text:"Setuju! Aku ikut deh."}],
+    en:[{side:"right",name:"Andi",text:"Hey, where are you going for holiday?"},{side:"left",name:"Budi",text:"No plans, just staying home."},{side:"right",name:"Andi",text:"Let's go to Kuta Beach!"},{side:"left",name:"Budi",text:"Awesome! When do we leave?"},{side:"right",name:"Andi",text:"Saturday morning, by motorcycle?"},{side:"left",name:"Budi",text:"Agreed! I'm in."}],
+    ar:[{side:"right",name:"أندي",text:"مَرْحَباً، إِلَى أَيْنَ سَتَذْهَبُ فِي الْعُطْلَةِ؟",latin:"Marḥaban, ilā ayna satadhhabu fī al-‘uṭlah?"},{side:"left",name:"بودي",text:"لَا خُطَطَ بَعْدُ، سَأَبْقَى فِي الْبَيْتِ.",latin:"Lā khuṭaṭa ba‘du, sa’abqā fī al-bayt."},{side:"right",name:"أندي",text:"لِنَذْهَبْ إِلَى شَاطِئِ كُوتَا!",latin:"Linadhhab ilā shāṭi’i Kūtā!"},{side:"left",name:"بودي",text:"رَائِعٌ! مَتَى سَنَنْطَلِقُ؟",latin:"Rā’i‘! Matā sananṭaliq?"},{side:"right",name:"أندي",text:"يَوْمَ السَّبْتِ صَبَاحاً بِالدَّرَّاجَةِ النَّارِيَّةِ؟",latin:"Yawma as-sabti ṣabāḥan bid-darrājati an-nāriyyah?"},{side:"left",name:"بودي",text:"أُوافِقُ! أَنَا مَعَكَ.",latin:"Uwāfiqu! Anā ma‘aka."}], tip:"Gunakan nada antusias dan ajakan positif.", tipColor:"#0984e3" },
+  { icon:"📘", title:"Meminjam Buku", tag:"Meminjam", theme:"theme-green", desc:"Meminjam catatan teman",
+    id:[{side:"right",name:"Rina",text:"Pinjam bukumu dong, saya ketinggalan catatan."},{side:"left",name:"Sari",text:"Oh, buku catatan matematika?"},{side:"right",name:"Rina",text:"Iya, besok akan kukembalikan."},{side:"left",name:"Sari",text:"Boleh, tapi hati-hati ya."},{side:"right",name:"Rina",text:"Makasih banyak, Sari!"},{side:"left",name:"Sari",text:"Sama-sama, jangan lupa ya."}],
+    en:[{side:"right",name:"Rina",text:"Can I borrow your notebook? I missed some notes."},{side:"left",name:"Sari",text:"Oh, the math notebook?"},{side:"right",name:"Rina",text:"Yes, I'll return it tomorrow."},{side:"left",name:"Sari",text:"Sure, but please be careful."},{side:"right",name:"Rina",text:"Thank you so much, Sari!"},{side:"left",name:"Sari",text:"You're welcome. Don't forget."}],
+    ar:[{side:"right",name:"رِينا",text:"هَلْ يُمْكِنُنِي اسْتِعَارَةُ دَفْتَرِكَ؟ أَنَا فَاتَنِي بَعْضُ الْمُلَاحَظَاتِ.",latin:"Hal yumkinunī isti‘āratu daftarika? Anā fātanī ba‘ḍu al-mulāḥaẓāt."},{side:"left",name:"سَارِي",text:"أَهْ، دَفْتَرُ الرِّيَاضِيَّاتِ؟",latin:"Ah, daftaru ar-riyāḍiyyāt?"},{side:"right",name:"رِينا",text:"نَعَمْ، سَأُعِيدُهُ غَداً.",latin:"Na‘am, sa’u‘īduhu ghadan."},{side:"left",name:"سَارِي",text:"تَفَضَّلْ، لَكِنْ بِحَذَرٍ.",latin:"Tafaḍḍal, lākin biḥadhar."},{side:"right",name:"رِينا",text:"شُكْراً جَزِيلاً يَا سَارِي!",latin:"Shukran jazīlan yā Sārī!"},{side:"left",name:"سَارِي",text:"عَفْواً، لَا تَنْسَيْ.",latin:"‘Afwan, lā tansay."}], tip:"Bersikap sopan dan bertanggung jawab.", tipColor:"#20bf6b" },
+  { icon:"🎸", title:"Percakapan Hobi", tag:"Hobi", theme:"theme-purple", desc:"Membahas hobi bermain gitar dan melukis",
+    id:[{side:"right",name:"Dewi",text:"Apa hobimu, Rizki?"},{side:"left",name:"Rizki",text:"Hobi saya bermain gitar. Kamu?"},{side:"right",name:"Dewi",text:"Aku suka melukis pemandangan."},{side:"left",name:"Rizki",text:"Wah keren! Sering latihan?"},{side:"right",name:"Dewi",text:"Setiap akhir pekan. Kalau kamu?"},{side:"left",name:"Rizki",text:"Tiap malam, asyik banget."},{side:"right",name:"Dewi",text:"Suatu hari kita kolaborasi yuk!"}],
+    en:[{side:"right",name:"Dewi",text:"What's your hobby, Rizki?"},{side:"left",name:"Rizki",text:"My hobby is playing guitar. You?"},{side:"right",name:"Dewi",text:"I love painting landscapes."},{side:"left",name:"Rizki",text:"Cool! Do you practice often?"},{side:"right",name:"Dewi",text:"Every weekend. What about you?"},{side:"left",name:"Rizki",text:"Every night, it's so fun."},{side:"right",name:"Dewi",text:"Let's collaborate someday!"}],
+    ar:[{side:"right",name:"دِيْوِي",text:"مَا هِوَايَتُكَ يَا رِزْقِي؟",latin:"Mā hiwāyatuka yā Rizqī?"},{side:"left",name:"رِزْقِي",text:"هِوَايَتِي العَزْفُ عَلَى الْجِيتَارِ. وَأَنْتِ؟",latin:"Hiwāyatī al-‘azfu ‘alā al-jītār. Wa anti?"},{side:"right",name:"دِيْوِي",text:"أَنَا أُحِبُّ رَسْمَ الْمَنَاظِرِ الطَّبِيعِيَّةِ.",latin:"Anā uḥibbu rasma al-manāẓir aṭ-ṭabī‘iyyah."},{side:"left",name:"رِزْقِي",text:"رَائِعٌ! هَلْ تُمَارِسِينَ كَثِيراً؟",latin:"Rā’i‘! Hal tumārisīna kathīran?"},{side:"right",name:"دِيْوِي",text:"كُلَّ عُطْلَةِ نِهَايَةِ أُسْبُوعٍ. وَأَنْتَ؟",latin:"Kulla ‘uṭlati nihāyati usbū‘. Wa anta?"},{side:"left",name:"رِزْقِي",text:"كُلَّ لَيْلَةٍ، إِنَّهَا مُمْتِعَةٌ جِدّاً.",latin:"Kulla laylah, innahā mumti‘atun jiddan."},{side:"right",name:"دِيْوِي",text:"لِنَتَعَاوَنْ يَوْماً مَا!",latin:"Linata‘āwan yawman mā!"}], tip:"Ekspresif dan saling menghargai.", tipColor:"#6c5ce7" },
+  { icon:"🚀", title:"Cita-cita", tag:"Cita-cita", theme:"theme-orange", desc:"Bercerita tentang cita-cita menjadi insinyur",
+    id:[{side:"right",name:"Aisyah",text:"Cita-citamu apa, Fajar?"},{side:"left",name:"Fajar",text:"Aku ingin jadi insinyur pesawat."},{side:"right",name:"Aisyah",text:"Wow hebat! Aku ingin jadi dokter."},{side:"left",name:"Fajar",text:"Semangat! Harus rajin belajar."},{side:"right",name:"Aisyah",text:"Iya, kita terus semangat ya!"},{side:"left",name:"Fajar",text:"Salam sukses buat kita."}],
+    en:[{side:"right",name:"Aisyah",text:"What's your dream, Fajar?"},{side:"left",name:"Fajar",text:"I want to be an aerospace engineer."},{side:"right",name:"Aisyah",text:"Wow amazing! I want to be a doctor."},{side:"left",name:"Fajar",text:"Keep spirit! Study hard."},{side:"right",name:"Aisyah",text:"Yes, let's stay enthusiastic!"},{side:"left",name:"Fajar",text:"Success for us."}],
+    ar:[{side:"right",name:"عَائِشَة",text:"مَا حُلْمُكَ يَا فَجْرُ؟",latin:"Mā ḥulmuka yā Fajru?"},{side:"left",name:"فَجْر",text:"أُرِيدُ أَنْ أَكُونَ مُهَنْدِسَ طَائِرَاتٍ.",latin:"Urīdu an akūna muhandisa ṭā’irāt."},{side:"right",name:"عَائِشَة",text:"رَائِعٌ جِدّاً! أَنَا أُرِيدُ أَنْ أُصْبِحَ طَبِيبَةً.",latin:"Rā’i‘un jiddan! Anā urīdu an uṣbiḥa ṭabībah."},{side:"left",name:"فَجْر",text:"بِالرُّوحِ! لِنَدْرُسْ بِاجْتِهَادٍ.",latin:"Bir-rūḥ! Lindrus bijtihād."},{side:"right",name:"عَائِشَة",text:"نَعَمْ، لِنَظَلَّ مُتَحَمِّسِينَ!",latin:"Na‘am, linaẓalla mutaḥammisīn!"},{side:"left",name:"فَجْر",text:"نَجَاحٌ لَنَا جَمِيعاً.",latin:"Najāḥun lanā jamī‘an."}], tip:"Penuh semangat dan dukungan.", tipColor:"#e67e22" },
+  { icon:"📖", title:"Di Perpustakaan", tag:"Perpus", theme:"theme-teal", desc:"Percakapan mencari buku di perpus",
+    id:[{side:"right",name:"Lina",text:"Permisi, cari buku fisika di rak mana ya?"},{side:"left",name:"Petugas",text:"Di rak nomor 12, sektor sains."},{side:"right",name:"Lina",text:"Terima kasih. Boleh pinjam tiga?"},{side:"left",name:"Petugas",text:"Boleh, tapi maksimal 2 minggu."},{side:"right",name:"Lina",text:"Siap. Apakah bukunya masih bagus?"},{side:"left",name:"Petugas",text:"Masih oke, baru restorasi."},{side:"right",name:"Lina",text:"Baik, saya ambil dua judul saja."}],
+    en:[{side:"right",name:"Lina",text:"Excuse me, where can I find physics books?"},{side:"left",name:"Librarian",text:"On shelf number 12, science sector."},{side:"right",name:"Lina",text:"Thank you. May I borrow three?"},{side:"left",name:"Librarian",text:"Yes, max 2 weeks."},{side:"right",name:"Lina",text:"Got it. Are the books in good condition?"},{side:"left",name:"Librarian",text:"Still good, just restored."},{side:"right",name:"Lina",text:"Alright, I'll take two titles."}],
+    ar:[{side:"right",name:"لِينَا",text:"مَعْذِرَةً، فِي أَيِّ رَفٍّ أَجِدُ كُتُبَ الْفِيزْيَاءِ؟",latin:"Ma‘dhiratan, fī ayyi raffin ajidu kutuba al-fīzyā’?"},{side:"left",name:"أَمِينُ الْمَكْتَبَةِ",text:"فِي الرَّفِّ رَقْمِ ١٢، قِطَاعُ الْعُلُومِ.",latin:"Fī ar-rafi raqmi 12, qiṭā‘u al-‘ulūm."},{side:"right",name:"لِينَا",text:"شُكْراً. هَلْ يُمْكِنُنِي اسْتِعَارَةُ ثَلَاثَةِ كُتُبٍ؟",latin:"Shukran. Hal yumkinunī isti‘āratu thalāthati kutub?"},{side:"left",name:"أَمِينُ الْمَكْتَبَةِ",text:"نَعَمْ، لِمُدَّةِ أُسْبُوعَيْنِ كَحَدٍّ أَقْصَى.",latin:"Na‘am, limuddati usbū‘ayni kaḥaddin aqṣā."},{side:"right",name:"لِينَا",text:"حَسَناً. هَلِ الْكُتُبُ لَا تَزَالُ بِحَالَةٍ جَيِّدَةٍ؟",latin:"Ḥasanan. Hal al-kutubu lā tazālu biḥālatin jayyidah?"},{side:"left",name:"أَمِينُ الْمَكْتَبَةِ",text:"لَا تَزَالُ جَيِّدَةً، تَمَّ تَرْمِيمُهَا.",latin:"Lā tazālu jayyidatan, tamma tarmīmuhā."},{side:"right",name:"لِينَا",text:"حَسَناً، سَآخُذُ عُنْوَانَيْنِ فَقَطْ.",latin:"Ḥasanan, sā’khuḏu ‘unwānayni faqaṭ."}], tip:"Gunakan bahasa sopan di tempat umum.", tipColor:"#00b894" },
+  { icon:"🧪", title:"Pelajaran Favorit", tag:"Favorit", theme:"theme-pink", desc:"Diskusi pelajaran IPA dan Matematika",
+    id:[{side:"right",name:"Hana",text:"Pelajaran favoritmu apa?"},{side:"left",name:"Raka",text:"IPA! Suka eksperimen di lab."},{side:"right",name:"Hana",text:"Aku malah lebih suka Matematika."},{side:"left",name:"Raka",text:"Matematika logis banget sih."},{side:"right",name:"Hana",text:"Iya, seru pemecahan masalah."},{side:"left",name:"Raka",text:"Teman kita ada yang suka bahasa?"},{side:"right",name:"Hana",text:"Banyak, tiap orang beda minat."}],
+    en:[{side:"right",name:"Hana",text:"What's your favorite subject?"},{side:"left",name:"Raka",text:"Science! I love lab experiments."},{side:"right",name:"Hana",text:"I prefer Math actually."},{side:"left",name:"Raka",text:"Math is very logical."},{side:"right",name:"Hana",text:"Yes, problem solving is fun."},{side:"left",name:"Raka",text:"Some friends like languages?"},{side:"right",name:"Hana",text:"Yeah, everyone has different interests."}],
+    ar:[{side:"right",name:"هَانَا",text:"مَا مَادَّتُكَ الْمُفَضَّلَةُ؟",latin:"Mā māddatuka al-mufaḍḍalah?"},{side:"left",name:"رَاكَا",text:"الْعُلُومُ! أُحِبُّ التَّجَارِبَ فِي الْمُخْتَبَرِ.",latin:"Al-‘ulūm! Uḥibbu at-tajāriba fī al-mukhtabar."},{side:"right",name:"هَانَا",text:"أَنَا أُفَضِّلُ الرِّيَاضِيَّاتِ فِعْلاً.",latin:"Anā ufaḍḍilu ar-riyāḍiyyāt fi‘lan."},{side:"left",name:"رَاكَا",text:"الرِّيَاضِيَّاتُ مَنْطِقِيَّةٌ جِدّاً.",latin:"Ar-riyāḍiyyāt manṭiqiyyah jiddan."},{side:"right",name:"هَانَا",text:"نَعَمْ، حَلُّ الْمَشَاكِلِ مُسَلٍّ.",latin:"Na‘am, ḥallu al-mashākili musallin."},{side:"left",name:"رَاكَا",text:"بَعْضُ الْأَصْدِقَاءِ يُحِبُّونَ اللُّغَاتِ؟",latin:"Ba‘ḍu al-aṣdiqā’ yuḥibbūna al-lughāt?"},{side:"right",name:"هَانَا",text:"نَعَمْ، كُلُّ شَخْصٍ لَهُ اهْتِمَامَاتٌ مُخْتَلِفَةٌ.",latin:"Na‘am, kullu shakṣin lahu ihtimāmātun mukhtalifah."}], tip:"Tunjukkan rasa ingin tahu dan hormati perbedaan.", tipColor:"#e84393" }
+];
 
-  document.querySelectorAll('.card, .swot-box').forEach(el => observer.observe(el));
+// ========== SCRIPT ROLEPLAY (ASLI, TIDAK DIUBAH) ==========
+let flippedCount = 0;
+let currentOrder = [];
+let activeFilterRole = 'all';
 
-  // Smooth nav background on scroll
-  const nav = document.querySelector('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav.style.boxShadow = '0 4px 32px rgba(44,74,46,0.1)';
-    } else {
-      nav.style.boxShadow = 'none';
-    }
+function shuffle(arr){ let a=[...arr]; for(let i=a.length-1;i>0;i--){ let j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+function updateProgress(){ document.getElementById('progress').innerText = `${flippedCount} dari ${rolesData.length} kartu terbuka`; }
+function filterCards(tag, btn){ activeFilterRole = tag; document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.card-outer').forEach(c=>{ c.style.display = (tag==='all' || c.dataset.tag===tag) ? '' : 'none'; }); }
+function makeAvatar(name, color){ return `<div class="av" style="background:${color};">${name.slice(0,2)}</div>`; }
+function renderBubbles(msgs, isAr, accentColor){ return msgs.map(msg=>{ let isRight = msg.side==='right'; let sideClass = isRight ? 'right' : 'left'; let bubbleStyle = isRight ? `background:${accentColor};` : ''; let arClass = isAr ? 'ar-b' : ''; let latinHtml = (isAr && msg.latin) ? `<div class="ar-latin">${msg.latin}</div>` : ''; return `<div class="bubble-row ${isRight ? 'right' : ''}"><div class="av" style="background:${isRight ? accentColor : '#aaa'};">${msg.name.charAt(0)}</div><div class="bwrap ${isRight ? 'right-wrap' : 'left-wrap'}"><div class="bname">${msg.name}</div><div class="bubble ${sideClass === 'right' ? 'right-b' : 'left-b'} ${arClass}" style="${bubbleStyle}">${msg.text}${latinHtml}</div></div></div>`; }).join(''); }
+function renderChat(role){ let section = document.getElementById('chatSection'); let color = role.tipColor; let panel = document.createElement('div'); panel.className='chat-panel'; let roleKey = role.title.replace(/\s/g,'-'); panel.innerHTML = `<div class="chat-header"><div class="chat-header-icon">${role.icon}</div><div class="chat-header-info"><div class="chat-header-title">${role.title}</div><div class="chat-header-sub">Percakapan 3 bahasa</div></div></div><div class="lang-tabs"><div class="lang-tab active" data-lang="id" onclick="switchLang(this,'${roleKey}')">🇮🇩 Indonesia</div><div class="lang-tab" data-lang="en" onclick="switchLang(this,'${roleKey}')">🇬🇧 English</div><div class="lang-tab" data-lang="ar" onclick="switchLang(this,'${roleKey}')">🇸🇦 العربية</div></div><div class="lang-content active" id="lc-id-${roleKey}"><div class="chat-body">${renderBubbles(role.id, false, color)}</div></div><div class="lang-content" id="lc-en-${roleKey}"><div class="chat-body">${renderBubbles(role.en, false, color)}</div></div><div class="lang-content" id="lc-ar-${roleKey}"><div class="chat-body">${renderBubbles(role.ar, true, color)}</div></div><div class="chat-tip">💡 ${role.tip}</div>`; section.innerHTML = ''; section.appendChild(panel); }
+window.switchLang = function(tab, roleKey){ let panel = tab.closest('.chat-panel'); panel.querySelectorAll('.lang-tab').forEach(t=>t.classList.remove('active')); panel.querySelectorAll('.lang-content').forEach(c=>c.classList.remove('active')); tab.classList.add('active'); document.getElementById(`lc-${tab.dataset.lang}-${roleKey}`).classList.add('active'); };
+function buildCards(){ let grid = document.getElementById('cardsGrid'); document.getElementById('chatSection').innerHTML = ''; currentOrder = shuffle(rolesData); grid.innerHTML = ''; flippedCount = 0; updateProgress(); currentOrder.forEach((role,i)=>{ let outer = document.createElement('div'); outer.className = 'card-outer'; outer.dataset.tag = role.tag; outer.innerHTML = `<div class="card-inner"><div class="card-face card-back"><div class="card-num">${String(i+1).padStart(2,'0')}</div><div class="card-label">Roleplay</div><div class="tap-hint">Klik untuk buka ✨</div></div><div class="card-face card-front"><div class="role-icon">${role.icon}</div><div class="role-title">${role.title}</div><div class="role-desc">${role.desc}</div><div class="role-tag">${role.tag}</div><div class="lang-badge"><span class="lang-dot">🇮🇩</span><span class="lang-dot">🇬🇧</span><span class="lang-dot">🇸🇦</span></div></div></div>`; outer.addEventListener('click',()=>{ if(!outer.classList.contains('flipped')){ outer.classList.add('flipped'); flippedCount++; updateProgress(); renderChat(role); } }); grid.appendChild(outer); }); if(activeFilterRole !== 'all'){ document.querySelectorAll('.card-outer').forEach(c=>{ c.style.display = c.dataset.tag === activeFilterRole ? '' : 'none'; }); } }
+window.resetCards = function(){ buildCards(); };
+buildCards();
+
+// Fungsi pindah antar halaman (page 1,2,3)
+function switchToPage(pageNumber) {
+  const pageId = `page${pageNumber}`;
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+  document.getElementById(pageId).classList.add('active-page');
+  document.querySelectorAll('.nav-page-btn').forEach(btn => btn.classList.remove('active'));
+  document.querySelector(`.nav-page-btn[data-page="${pageId}"]`).classList.add('active');
+  if(pageNumber === 3) setTimeout(() => window.dispatchEvent(new Event('resize')), 30);
+}
+document.querySelectorAll('.nav-page-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetPage = btn.getAttribute('data-page');
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+    document.getElementById(targetPage).classList.add('active-page');
+    document.querySelectorAll('.nav-page-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if(targetPage === 'page3') setTimeout(() => window.dispatchEvent(new Event('resize')), 30);
   });
+});
 </script>
 </body>
 </html>
