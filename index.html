@@ -22,7 +22,7 @@
   .lang-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
   .lang-pill{background:rgba(255,255,255,.25);border:1.5px solid rgba(255,255,255,.5);color:#fff;font-size:12px;font-weight:700;padding:4px 14px;border-radius:20px;}
 
-  /* navigasi halaman 1,2,3 - style modern tanpa mengubah tampilan utama */
+  /* navigasi halaman 1,2,3 */
   .page-nav {
     background: white;
     border-radius: 50px;
@@ -75,7 +75,7 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ========== HALAMAN 1: VIDEO INTERAKTIF (gaya segar) ========== */
+  /* ========== HALAMAN 1: VIDEO INTERAKTIF ========== */
   .video-hero {
     background: linear-gradient(145deg, #1e2f4b, #0f1a2c);
     border-radius: 32px;
@@ -93,13 +93,14 @@
     margin: 1.5rem 0;
     box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3);
   }
-  .video-wrapper iframe {
+  .video-wrapper video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: 0;
+    object-fit: contain;
+    background: #000;
   }
   .feature-grid {
     display: grid;
@@ -167,7 +168,7 @@
     margin: 5px 5px 0 0;
   }
 
-  /* ========== HALAMAN 3: ROLEPLAY ASLI (tidak ada perubahan tampilan) ========== */
+  /* ========== HALAMAN 3: ROLEPLAY CARDS ========== */
   .scenario-box{background:#fff;border-radius:16px;padding:1.2rem 1.5rem;margin-bottom:2rem;border-left:5px solid #ff6b6b;box-shadow:0 4px 20px rgba(255,107,107,.12);}
   .scenario-label{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#ff6b6b;margin-bottom:5px;}
   .controls-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.8rem;}
@@ -192,7 +193,7 @@
   .role-desc{font-size:10.5px;color:#888;line-height:1.5;}
   .role-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-top:5px;background:#fff0f0;color:#ee5a24;}
   .lang-badge{display:flex;gap:4px;margin-top:6px;justify-content:center;flex-wrap:wrap;}
-  .lang-dot{font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px;}
+  .lang-dot{font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px;background:#f0f0f0;}
   .chat-section{margin-top:1rem;}
   .chat-panel{background:#fff;border-radius:20px;overflow:hidden;margin-bottom:1.5rem;box-shadow:0 8px 30px rgba(0,0,0,.08);}
   .chat-header{padding:.9rem 1.2rem;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ff6b6b,#ff8e53);}
@@ -250,7 +251,7 @@
   </div>
 </header>
 
-<!-- navigasi halaman 1,2,3 (berurutan) -->
+<!-- navigasi halaman 1,2,3 -->
 <div style="display: flex; justify-content: center; margin-top: 1.2rem;">
   <div class="page-nav">
     <button class="nav-page-btn active" data-page="page1"><i class="fas fa-video"></i> 1. Video Interaktif</button>
@@ -259,17 +260,28 @@
   </div>
 </div>
 
-<!-- Halaman 1 : Video Interaktif -->
+<!-- ==================== HALAMAN 1 : VIDEO INTERAKTIF ==================== -->
 <div id="page1" class="page active-page">
   <div class="page-container">
     <div class="video-hero">
       <h2><i class="fas fa-play-circle"></i> Video Interaktif – Belajar Percakapan 3 Bahasa</h2>
       <p>Tonton contoh roleplay, tirukan pelafalan, lalu praktikkan dengan kartu di halaman 3.</p>
       <div class="video-wrapper">
-        <!-- Ganti URL youtube berikut dengan videomu sendiri (contoh interaktif roleplay) -->
-        <iframe src="https://adamv4neo.github.io/plantable/roleplay.mp4" title="Roleplay demo video interaktif" allowfullscreen></iframe>
+        <video 
+          autoplay 
+          muted 
+          loop 
+          playsinline 
+          controls 
+          preload="auto">
+          <source src="https://adamv4neo.github.io/plantable/roleplay.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutaran video. 
+          <a href="https://adamv4neo.github.io/plantable/roleplay.mp4">Download video</a>
+        </video>
       </div>
-      <div class="video-caption" style="background:rgba(255,255,245,0.2); display:inline-block; padding:4px 16px; border-radius:30px;"><i class="fas fa-language"></i> Contoh tema: ajak liburan · pinjam buku · hobi & cita-cita</div>
+      <div class="video-caption" style="background:rgba(255,255,245,0.2); display:inline-block; padding:4px 16px; border-radius:30px;">
+        <i class="fas fa-language"></i> Contoh tema: ajak liburan · pinjam buku · hobi & cita-cita
+      </div>
       <button class="btn-cta" onclick="switchToPage(3)"><i class="fas fa-arrow-right"></i> Coba Roleplay Cards →</button>
     </div>
     <div class="feature-grid">
@@ -281,7 +293,7 @@
   </div>
 </div>
 
-<!-- Halaman 2 : Panduan Permainan -->
+<!-- ==================== HALAMAN 2 : PANDUAN PERMAINAN ==================== -->
 <div id="page2" class="page">
   <div class="page-container">
     <h2 style="margin-bottom: 1rem;"><i class="fas fa-book-open"></i> Panduan Bermain Roleplay Cards</h2>
@@ -295,7 +307,7 @@
   </div>
 </div>
 
-<!-- Halaman 3 : Roleplay Cards original (isi lengkap dengan 6 tema, 3 bahasa, harakat dan latin) -->
+<!-- ==================== HALAMAN 3 : ROLEPLAY CARDS ==================== -->
 <div id="page3" class="page">
   <div class="page-container">
     <div class="scenario-box">
@@ -351,7 +363,7 @@ const rolesData = [
     ar:[{side:"right",name:"هَانَا",text:"مَا مَادَّتُكَ الْمُفَضَّلَةُ؟",latin:"Mā māddatuka al-mufaḍḍalah?"},{side:"left",name:"رَاكَا",text:"الْعُلُومُ! أُحِبُّ التَّجَارِبَ فِي الْمُخْتَبَرِ.",latin:"Al-‘ulūm! Uḥibbu at-tajāriba fī al-mukhtabar."},{side:"right",name:"هَانَا",text:"أَنَا أُفَضِّلُ الرِّيَاضِيَّاتِ فِعْلاً.",latin:"Anā ufaḍḍilu ar-riyāḍiyyāt fi‘lan."},{side:"left",name:"رَاكَا",text:"الرِّيَاضِيَّاتُ مَنْطِقِيَّةٌ جِدّاً.",latin:"Ar-riyāḍiyyāt manṭiqiyyah jiddan."},{side:"right",name:"هَانَا",text:"نَعَمْ، حَلُّ الْمَشَاكِلِ مُسَلٍّ.",latin:"Na‘am, ḥallu al-mashākili musallin."},{side:"left",name:"رَاكَا",text:"بَعْضُ الْأَصْدِقَاءِ يُحِبُّونَ اللُّغَاتِ؟",latin:"Ba‘ḍu al-aṣdiqā’ yuḥibbūna al-lughāt?"},{side:"right",name:"هَانَا",text:"نَعَمْ، كُلُّ شَخْصٍ لَهُ اهْتِمَامَاتٌ مُخْتَلِفَةٌ.",latin:"Na‘am, kullu shakṣin lahu ihtimāmātun mukhtalifah."}], tip:"Tunjukkan rasa ingin tahu dan hormati perbedaan.", tipColor:"#e84393" }
 ];
 
-// ========== SCRIPT ROLEPLAY (ASLI, TIDAK DIUBAH) ==========
+// ========== SCRIPT ROLEPLAY ==========
 let flippedCount = 0;
 let currentOrder = [];
 let activeFilterRole = 'all';
@@ -360,14 +372,14 @@ function shuffle(arr){ let a=[...arr]; for(let i=a.length-1;i>0;i--){ let j=Math
 function updateProgress(){ document.getElementById('progress').innerText = `${flippedCount} dari ${rolesData.length} kartu terbuka`; }
 function filterCards(tag, btn){ activeFilterRole = tag; document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.card-outer').forEach(c=>{ c.style.display = (tag==='all' || c.dataset.tag===tag) ? '' : 'none'; }); }
 function makeAvatar(name, color){ return `<div class="av" style="background:${color};">${name.slice(0,2)}</div>`; }
-function renderBubbles(msgs, isAr, accentColor){ return msgs.map(msg=>{ let isRight = msg.side==='right'; let sideClass = isRight ? 'right' : 'left'; let bubbleStyle = isRight ? `background:${accentColor};` : ''; let arClass = isAr ? 'ar-b' : ''; let latinHtml = (isAr && msg.latin) ? `<div class="ar-latin">${msg.latin}</div>` : ''; return `<div class="bubble-row ${isRight ? 'right' : ''}"><div class="av" style="background:${isRight ? accentColor : '#aaa'};">${msg.name.charAt(0)}</div><div class="bwrap ${isRight ? 'right-wrap' : 'left-wrap'}"><div class="bname">${msg.name}</div><div class="bubble ${sideClass === 'right' ? 'right-b' : 'left-b'} ${arClass}" style="${bubbleStyle}">${msg.text}${latinHtml}</div></div></div>`; }).join(''); }
+function renderBubbles(msgs, isAr, accentColor){ return msgs.map(msg=>{ let isRight = msg.side==='right'; let bubbleStyle = isRight ? `background:${accentColor};` : ''; let arClass = isAr ? 'ar-b' : ''; let latinHtml = (isAr && msg.latin) ? `<div class="ar-latin">${msg.latin}</div>` : ''; return `<div class="bubble-row ${isRight ? 'right' : ''}"><div class="av" style="background:${isRight ? accentColor : '#aaa'};">${msg.name.charAt(0)}</div><div class="bwrap ${isRight ? 'right-wrap' : 'left-wrap'}"><div class="bname">${msg.name}</div><div class="bubble ${isRight ? 'right-b' : 'left-b'} ${arClass}" style="${bubbleStyle}">${msg.text}${latinHtml}</div></div></div>`; }).join(''); }
 function renderChat(role){ let section = document.getElementById('chatSection'); let color = role.tipColor; let panel = document.createElement('div'); panel.className='chat-panel'; let roleKey = role.title.replace(/\s/g,'-'); panel.innerHTML = `<div class="chat-header"><div class="chat-header-icon">${role.icon}</div><div class="chat-header-info"><div class="chat-header-title">${role.title}</div><div class="chat-header-sub">Percakapan 3 bahasa</div></div></div><div class="lang-tabs"><div class="lang-tab active" data-lang="id" onclick="switchLang(this,'${roleKey}')">🇮🇩 Indonesia</div><div class="lang-tab" data-lang="en" onclick="switchLang(this,'${roleKey}')">🇬🇧 English</div><div class="lang-tab" data-lang="ar" onclick="switchLang(this,'${roleKey}')">🇸🇦 العربية</div></div><div class="lang-content active" id="lc-id-${roleKey}"><div class="chat-body">${renderBubbles(role.id, false, color)}</div></div><div class="lang-content" id="lc-en-${roleKey}"><div class="chat-body">${renderBubbles(role.en, false, color)}</div></div><div class="lang-content" id="lc-ar-${roleKey}"><div class="chat-body">${renderBubbles(role.ar, true, color)}</div></div><div class="chat-tip">💡 ${role.tip}</div>`; section.innerHTML = ''; section.appendChild(panel); }
 window.switchLang = function(tab, roleKey){ let panel = tab.closest('.chat-panel'); panel.querySelectorAll('.lang-tab').forEach(t=>t.classList.remove('active')); panel.querySelectorAll('.lang-content').forEach(c=>c.classList.remove('active')); tab.classList.add('active'); document.getElementById(`lc-${tab.dataset.lang}-${roleKey}`).classList.add('active'); };
 function buildCards(){ let grid = document.getElementById('cardsGrid'); document.getElementById('chatSection').innerHTML = ''; currentOrder = shuffle(rolesData); grid.innerHTML = ''; flippedCount = 0; updateProgress(); currentOrder.forEach((role,i)=>{ let outer = document.createElement('div'); outer.className = 'card-outer'; outer.dataset.tag = role.tag; outer.innerHTML = `<div class="card-inner"><div class="card-face card-back"><div class="card-num">${String(i+1).padStart(2,'0')}</div><div class="card-label">Roleplay</div><div class="tap-hint">Klik untuk buka ✨</div></div><div class="card-face card-front"><div class="role-icon">${role.icon}</div><div class="role-title">${role.title}</div><div class="role-desc">${role.desc}</div><div class="role-tag">${role.tag}</div><div class="lang-badge"><span class="lang-dot">🇮🇩</span><span class="lang-dot">🇬🇧</span><span class="lang-dot">🇸🇦</span></div></div></div>`; outer.addEventListener('click',()=>{ if(!outer.classList.contains('flipped')){ outer.classList.add('flipped'); flippedCount++; updateProgress(); renderChat(role); } }); grid.appendChild(outer); }); if(activeFilterRole !== 'all'){ document.querySelectorAll('.card-outer').forEach(c=>{ c.style.display = c.dataset.tag === activeFilterRole ? '' : 'none'; }); } }
 window.resetCards = function(){ buildCards(); };
 buildCards();
 
-// Fungsi pindah antar halaman (page 1,2,3)
+// Fungsi pindah antar halaman
 function switchToPage(pageNumber) {
   const pageId = `page${pageNumber}`;
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
