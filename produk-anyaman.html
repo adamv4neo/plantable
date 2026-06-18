@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kerajinan Anyaman – Desa Saptorenggo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hijau-tua:   #1E3D0F;
+      --hijau-utama: #2D5016;
+      --hijau-muda:  #4A7A25;
+      --emas:        #D4A017;
+      --emas-muda:   #F0C84A;
+      --krem:        #F7F0E3;
+      --putih:       #FFFFFF;
+      --coklat:      #6B3A1F;
+      --teks-gelap:  #1A1A1A;
+      --teks-abu:    #555555;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--putih);
+      color: var(--teks-gelap);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .header-produk {
+      background: linear-gradient(135deg, #2D2D0F, #4A4A16);
+      padding: 40px 0;
+      border-bottom: 4px solid var(--emas);
+    }
+
+    .header-produk .container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-kembali {
+      background: rgba(255,255,255,0.15);
+      color: var(--putih);
+      padding: 10px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: background .25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-kembali:hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .header-produk h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--putih);
+      flex: 1;
+    }
+
+    .header-produk .tag-produk {
+      background: var(--emas);
+      color: var(--hijau-tua);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .produk-detail {
+      padding: 60px 0;
+    }
+
+    .produk-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .produk-gambar {
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #2D2D0F, #4A4A16);
+      padding: 60px 40px;
+      text-align: center;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .produk-gambar .icon-besar {
+      font-size: 120px;
+      line-height: 1;
+    }
+
+    .produk-gambar p {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 16px;
+    }
+
+    .produk-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--hijau-tua);
+      margin-bottom: 8px;
+    }
+
+    .produk-info .subtitle {
+      color: var(--hijau-muda);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .produk-info .deskripsi {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--teks-abu);
+      margin-bottom: 24px;
+    }
+
+    .produk-info .deskripsi p + p {
+      margin-top: 16px;
+    }
+
+    .info-spesial {
+      background: var(--krem);
+      padding: 24px;
+      border-radius: 8px;
+      border-left: 4px solid var(--emas);
+      margin: 24px 0;
+    }
+
+    .info-spesial h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--hijau-tua);
+      margin-bottom: 8px;
+    }
+
+    .info-spesial p {
+      font-size: 14px;
+      color: var(--teks-abu);
+      line-height: 1.6;
+    }
+
+    .manfaat-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .manfaat-list li {
+      padding: 12px 16px;
+      background: #F7F9F5;
+      border-radius: 6px;
+      font-size: 14px;
+      color: var(--teks-gelap);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .manfaat-list li::before {
+      content: "✓";
+      color: var(--hijau-muda);
+      font-weight: 700;
+    }
+
+    .btn-order {
+      display: inline-block;
+      background: var(--emas);
+      color: var(--hijau-tua);
+      padding: 14px 40px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background .25s, transform .2s;
+      margin-top: 8px;
+    }
+
+    .btn-order:hover {
+      background: var(--emas-muda);
+      transform: translateY(-2px);
+    }
+
+    .footer-produk {
+      background: var(--hijau-tua);
+      padding: 24px 0;
+      border-top: 1px solid rgba(212,160,23,0.2);
+      margin-top: 40px;
+    }
+
+    .footer-produk .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-produk p {
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+    }
+
+    .footer-produk a {
+      color: var(--emas-muda);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-produk a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .produk-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .produk-gambar {
+        min-height: 250px;
+        padding: 40px 20px;
+      }
+
+      .produk-gambar .icon-besar {
+        font-size: 80px;
+      }
+
+      .header-produk h1 {
+        font-size: 24px;
+      }
+
+      .manfaat-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-produk .container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .btn-kembali {
+        justify-content: center;
+      }
+
+      .produk-info h2 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header-produk">
+  <div class="container">
+    <a href="index.html" class="btn-kembali">← Kembali</a>
+    <h1>Kerajinan Anyaman</h1>
+    <span class="tag-produk">Kerajinan</span>
+  </div>
+</header>
+
+<section class="produk-detail">
+  <div class="container">
+    <div class="produk-detail-grid">
+      <div class="produk-gambar">
+        <div class="icon-besar">🪑</div>
+        <p>Kerajinan Tangan</p>
+      </div>
+
+      <div class="produk-info">
+        <span class="subtitle">🧺 Karya Seni Tradisional</span>
+        <h2>Kerajinan Anyaman</h2>
+
+        <div class="deskripsi">
+          <p>Kerajinan anyaman bambu dan rotan merupakan keterampilan turun-temurun yang masih dilestarikan oleh masyarakat Desa Saptorenggo. Produk anyaman yang dihasilkan berupa perabot rumah tangga seperti kursi, meja, keranjang, dan berbagai dekorasi bernilai seni tinggi.</p>
+          <p>Setiap produk dikerjakan dengan ketelitian dan penuh kesabaran oleh para perajin lokal. Keahlian ini tidak hanya menghasilkan produk fungsional tetapi juga menjadi warisan budaya yang bernilai ekonomis.</p>
+        </div>
+
+        <div class="info-spesial">
+          <h4>🌟 Keunggulan Produk</h4>
+          <p>Anyaman Saptorenggo memiliki kualitas tinggi dengan desain khas yang memadukan unsur tradisional dan modern. Setiap produk unik karena dikerjakan secara manual dengan sentuhan seni yang khas.</p>
+        </div>
+
+        <ul class="manfaat-list">
+          <li>Kerajinan tangan berkualitas</li>
+          <li>Desain unik & tradisional</li>
+          <li>Bahan bambu & rotan alami</li>
+          <li>Nilai seni tinggi</li>
+          <li>Produk fungsional</li>
+          <li>Harga kompetitif</li>
+        </ul>
+
+        <a href="#" class="btn-order">Pesan Sekarang</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-produk">
+  <div class="container">
+    <p>© 2025 <strong style="color:var(--emas);">Desa Saptorenggo</strong> · Kecamatan Pakis, Kabupaten Malang</p>
+    <a href="index.html">← Kembali ke Beranda</a>
+  </div>
+</footer>
+
+</body>
+</html>
