@@ -241,6 +241,10 @@
       border: 1px solid #E8E2D5; border-radius: 8px; overflow: hidden;
       transition: box-shadow .3s, transform .3s;
       background: var(--putih);
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     .produk-kartu:hover { box-shadow: 0 12px 40px rgba(45,80,22,0.12); transform: translateY(-6px); }
 
@@ -536,7 +540,7 @@
   </div>
 </section>
 
-<!-- PRODUK -->
+<!-- PRODUK (6 KARTU DAPAT DIKLIK, MASING-MASING BUKA HTML TERPISAH) -->
 <section id="produk">
   <div class="container">
     <div class="produk-header reveal">
@@ -546,7 +550,8 @@
     </div>
 
     <div class="produk-grid">
-      <div class="produk-kartu p1 reveal">
+      <!-- 1. Padi & Beras Lokal -->
+      <a href="produk-padi.html" class="produk-kartu p1 reveal">
         <div class="produk-atas">
           <div class="produk-icon-wrap">
             <div class="icon-besar">🌾</div>
@@ -558,9 +563,10 @@
           <p>Hasil panen padi berkualitas tinggi dari sawah-sawah subur Saptorenggo. Beras lokal dengan cita rasa nasi yang pulen dan harum menjadi andalan warga.</p>
           <span class="produk-tag">Pertanian</span>
         </div>
-      </div>
+      </a>
 
-      <div class="produk-kartu p2 reveal">
+      <!-- 2. Sayur & Hortikultura -->
+      <a href="produk-sayur.html" class="produk-kartu p2 reveal">
         <div class="produk-atas">
           <div class="produk-icon-wrap">
             <div class="icon-besar">🥦</div>
@@ -572,9 +578,10 @@
           <p>Berbagai jenis sayuran segar seperti cabai, tomat, dan sayuran hijau ditanam oleh petani lokal dengan teknik pertanian ramah lingkungan.</p>
           <span class="produk-tag">Hortikultura</span>
         </div>
-      </div>
+      </a>
 
-      <div class="produk-kartu p3 reveal">
+      <!-- 3. Budidaya Ikan -->
+      <a href="produk-ikan.html" class="produk-kartu p3 reveal">
         <div class="produk-atas">
           <div class="produk-icon-wrap">
             <div class="icon-besar">🐟</div>
@@ -586,9 +593,10 @@
           <p>Kolam ikan lele, nila, dan gurami yang dikelola warga secara mandiri menjadi sumber protein segar dan penghasilan tambahan keluarga.</p>
           <span class="produk-tag">Perikanan</span>
         </div>
-      </div>
+      </a>
 
-      <div class="produk-kartu p4 reveal">
+      <!-- 4. Kerupuk & Camilan -->
+      <a href="produk-kerupuk.html" class="produk-kartu p4 reveal">
         <div class="produk-atas">
           <div class="produk-icon-wrap">
             <div class="icon-besar">🍪</div>
@@ -600,9 +608,10 @@
           <p>Industri rumahan penghasil kerupuk, rempeyek, dan aneka camilan tradisional yang diproduksi ibu-ibu PKK dengan resep turun-temurun.</p>
           <span class="produk-tag">UMKM</span>
         </div>
-      </div>
+      </a>
 
-      <div class="produk-kartu p5 reveal">
+      <!-- 5. Tanaman Obat & Jamu -->
+      <a href="produk-jamu.html" class="produk-kartu p5 reveal">
         <div class="produk-atas">
           <div class="produk-icon-wrap">
             <div class="icon-besar">🌿</div>
@@ -614,9 +623,10 @@
           <p>Budidaya tanaman herbal seperti jahe, temulawak, dan kunyit yang diolah menjadi jamu dan produk kesehatan alami khas Saptorenggo.</p>
           <span class="produk-tag">Kesehatan</span>
         </div>
-      </div>
+      </a>
 
-      <div class="produk-kartu p6 reveal">
+      <!-- 6. Kerajinan Anyaman -->
+      <a href="produk-anyaman.html" class="produk-kartu p6 reveal">
         <div class="produk-atas">
           <div class="produk-icon-wrap">
             <div class="icon-besar">🪑</div>
@@ -628,7 +638,7 @@
           <p>Produk kerajinan tangan berupa anyaman bambu dan rotan yang menghasilkan berbagai perabot rumah tangga dan dekorasi bernilai seni tinggi.</p>
           <span class="produk-tag">Kerajinan</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
